@@ -86,7 +86,7 @@
   </url>
   
   <url>
-    <loc>http://example.com/2021/01/01/hello-world/</loc>
+    <loc>http://example.com/2022/10/10/hello-world/</loc>
     
     <lastmod>2021-01-01</lastmod>
     
@@ -104,14 +104,14 @@
 
   
   <url>
-    <loc>http://example.com/categories/%E5%B0%8F%E7%A8%8B%E5%BA%8F/</loc>
+    <loc>http://example.com/categories/data/</loc>
     <lastmod>2022-10-10</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>http://example.com/categories/data/</loc>
+    <loc>http://example.com/categories/%E5%B0%8F%E7%A8%8B%E5%BA%8F/</loc>
     <lastmod>2022-10-10</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
