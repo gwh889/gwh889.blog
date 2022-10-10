@@ -186,15 +186,15 @@
 <p>2.默认新建的项目下没有package.json文件，所以需要使用npm init初始化一直回车，会在根目录下创建</p>
 <p>3.使用npm命令进行安装第三方插件（配置要看相应的官方文档）</p>
 <p>4.点击详情=&gt;本地设置=&gt;使用npm包，点击顶部菜单栏 工具=&gt;构建npm，然后引入组件就可以使用了</p>
-<p><strong>注意</strong>：这个模块是必须的，每次安装npm模块都需要构建npm</p>
-<h3 id="单位：-（iphone）"><a href="#单位：-（iphone）" class="headerlink" title="单位： （iphone）"></a>单位： （iphone）</h3><p>1.物理像素(屏幕分辨率）： 像素点 px    750* 1334</p>
-<p>2.设备独立像素（css像素）： 虚拟像素                     375* 667</p>
-<p>3.dpr： 设备像素比=物理像素/设备独立像素  iPhone6的dpr是2</p>
-<p>4.ppI： 一英寸显示屏上的像素点个数      5.5英寸的设备是对角线的长度   163</p>
+<p><strong>注意</strong>： 这个模块是必须的，每次安装npm模块都需要构建npm</p>
+<h3 id="单位：-（iphone）"><a href="#单位：-（iphone）" class="headerlink" title="单位： （iphone）"></a>单位： （iphone）</h3><p>1.物理像素(屏幕分辨率）：  像素点 px    750* 1334</p>
+<p>2.设备独立像素（css像素）：  虚拟像素                     375* 667</p>
+<p>3.dpr：  设备像素比=物理像素/设备独立像素  iPhone6的dpr是2</p>
+<p>4.ppI：  一英寸显示屏上的像素点个数      5.5英寸的设备是对角线的长度   163</p>
 <p>小程序适配： </p>
 <p>常用rem（根元素字体大小）、viewport（布局视图等于视觉视图，本身布局视图（750）&gt;视觉视图（375））</p>
-<p>iphone6： 1rpx=1物理像素=0.5px   1rpx=目标设备宽度/750*px   底层已经做了viewport适配的处理</p>
-<p>视网膜屏幕： iphone6的dpr是2是人类肉眼分辨的极限</p>
+<p>iphone6：  1rpx=1物理像素=0.5px   1rpx=目标设备宽度/750*px   底层已经做了viewport适配的处理</p>
+<p>视网膜屏幕：  iphone6的dpr是2是人类肉眼分辨的极限</p>
 <h3 id="项目开发中遇到的问题"><a href="#项目开发中遇到的问题" class="headerlink" title="项目开发中遇到的问题"></a>项目开发中遇到的问题</h3><p>1.图表问题</p>
 <p>（1）小程序利用ec-canvas组件使用echarts图表示，真机调试会报错，此时为ec-canvas标签添加force-use-old-canvas=”true”，使用后画面可能会失真，上线去掉即可（正式上线不会有这个问题）</p>
 <p>（2）图表可能存在加载不出来或者不随页面滚动的问题，使用force-use-old-canvas=”true”图表会跟着页面移动，但是页面会失真，使用旧的canvas</p>
@@ -215,13 +215,13 @@
 <p>9.小程序上传图片会生成一个虚拟地址，如果要用formData解析（readFileSync只能读取本地路径），提交接口必须传递这个本地的虚拟地址，如果有保存草稿功能，下次进来可以看到上次上传的图片，并可以直接提交，需要后端也返回这个虚拟的本地地址</p>
 <p>10.小程序中获取dom节点的方法</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">this</span>.selectComponent(<span class="string">&quot;#list&quot;</span>)</span><br></pre></td></tr></table></figure>
-<p>11.vant中toast组件中不能设置节点，要在组件所在的页面中写<van-toast id="van-toast" /><br>12.双向绑定的局限性：model:value只限于普通键值对，若是对象里的键值对则无效</p>
+<p>11.vant中toast组件中不能设置节点，要在组件所在的页面中写<van-toast id="van-toast" /><br>12.双向绑定的局限性： model: value只限于普通键值对，若是对象里的键值对则无效</p>
 <p>13.使用apply改变指向null，如…展开运算符</p>
 <p>14.小程序原生组件textarea和vant中弹出层Popup一起使用，textarea会漂浮在Popup上，可能是因为原生组件的原因，或者是本身的bug，解决办法是在Popup弹出的时候暂时性将textarea隐藏</p>
-<p>15.上传文件： 本地调试时上传的文件应该是放到微信的云服务器上，所以会生成一个虚拟地址<a target="_blank" rel="noopener" href="http://temp/+%E6%96%87%E4%BB%B6%E5%90%8D%EF%BC%8C%E8%AF%BB%E5%8F%96%E4%B8%8E%E4%B8%8A%E4%BC%A0%E9%83%BD%E7%94%A8%E8%BF%99%E4%B8%AA%E8%99%9A%E6%8B%9F%E5%9C%B0%E5%9D%80%E6%B2%A1%E9%97%AE%E9%A2%98%E3%80%82">http://temp/+文件名，读取与上传都用这个虚拟地址没问题。</a></p>
+<p>15.上传文件：  本地调试时上传的文件应该是放到微信的云服务器上，所以会生成一个虚拟地址<a target="_blank" rel="noopener" href="http://temp/+%E6%96%87%E4%BB%B6%E5%90%8D%EF%BC%8C%E8%AF%BB%E5%8F%96%E4%B8%8E%E4%B8%8A%E4%BC%A0%E9%83%BD%E7%94%A8%E8%BF%99%E4%B8%AA%E8%99%9A%E6%8B%9F%E5%9C%B0%E5%9D%80%E6%B2%A1%E9%97%AE%E9%A2%98%E3%80%82">http://temp/+文件名，读取与上传都用这个虚拟地址没问题。</a></p>
 <p>但如果是正式环境，接口使用https，在手机上上传图片的地址则不能使用<a target="_blank" rel="noopener" href="http://temp/+%E6%96%87%E4%BB%B6%E5%90%8D">http://temp/+文件名</a> 这个虚拟地址，上传图片的地址应该是wxfile://后加url，读取读片就用上传到服务器的地址（web端的话应该是可以使用虚拟的那个）</p>
-<p>16.使用第三方组件库的组件最好都放在代码最下方，否则会出现不必要的bug（有的机型），例如： van-Popup弹出层中的按钮，在苹果手机上就会和页面中的按钮重叠，导致层级错乱</p>
-<p>17.微信小程序中背景图不能使用本地图片，解决办法：</p>
+<p>16.使用第三方组件库的组件最好都放在代码最下方，否则会出现不必要的bug（有的机型），例如：  van-Popup弹出层中的按钮，在苹果手机上就会和页面中的按钮重叠，导致层级错乱</p>
+<p>17.微信小程序中背景图不能使用本地图片，解决办法： </p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1.使用网络图片</span><br><span class="line">2.Base64编码</span><br><span class="line">3.使用image标签，设置z-index</span><br></pre></td></tr></table></figure>
 <p>18.监听用户滑动页面事件</p>
 <p><a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/miniprogram/dev/reference/api/Page.html#onPageScroll-Object-object">https://developers.weixin.qq.com/miniprogram/dev/reference/api/Page.html#onPageScroll-Object-object</a></p>
@@ -452,7 +452,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>使用element-ui组件中的upload组件实现多个文件的上传，文件上传基本实现了以下几个功能：</p>
+        <p>使用element-ui组件中的upload组件实现多个文件的上传，文件上传基本实现了以下几个功能： </p>
 <p>1.文件上传是必填项，上传成功后下边的提示要消失</p>
 <p>2.限制文件上传类型、数量以及大小</p>
 <p>3.文件在上传过程中不允许提交</p>
@@ -521,7 +521,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>将html元素转换为图片并可以下载，具体示例如下:</p>
+        <p>将html元素转换为图片并可以下载，具体示例如下: </p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class&#x3D;&quot;previewPrint&quot; id&#x3D;&quot;previewPrint&quot; ref&#x3D;&quot;imageWrapper&quot;&gt;</span><br><span class="line">        &lt;div v-for&#x3D;&quot;item in barcodeList&quot; :key&#x3D;&quot;item.index&quot; class&#x3D;&quot;printBar&quot;&gt;</span><br><span class="line">          &lt;div&gt;料箱编码：AB0300001&lt;&#x2F;div&gt;</span><br><span class="line">          &lt;div class&#x3D;&quot;printDescribe&quot;&gt;</span><br><span class="line">            &lt;div&gt;型号：AB-001&lt;&#x2F;div&gt;</span><br><span class="line">            &lt;div&gt;重量(kg)：10.15&lt;&#x2F;div&gt;</span><br><span class="line">          &lt;&#x2F;div&gt;</span><br><span class="line">          &lt;barcode :value&#x3D;&quot;item.value&quot; height&#x3D;&quot;70&quot;&gt;</span><br><span class="line">            &#123;&#123; item.value &#125;&#125;</span><br><span class="line">          &lt;&#x2F;barcode&gt;</span><br><span class="line">        &lt;&#x2F;div&gt;</span><br><span class="line">&lt;&#x2F;div&gt;</span><br><span class="line">&#x2F;&#x2F;转换工具</span><br><span class="line">import html2canvas from &#39;html2canvas&#39;</span><br></pre></td></tr></table></figure>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment">//点击下载调用的函数</span></span><br><span class="line"><span class="function"><span class="title">download</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">      html2canvas(<span class="built_in">this</span>.$refs.imageWrapper, &#123;</span><br><span class="line">        backgroundColor: <span class="string">&#x27;#fff&#x27;</span>,</span><br><span class="line">        scal: <span class="number">2</span></span><br><span class="line">      &#125;).then(<span class="function">(<span class="params">canvas</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">var</span> context = canvas.getContext(<span class="string">&#x27;2d&#x27;</span>);</span><br><span class="line">        <span class="comment">// 关闭抗锯齿</span></span><br><span class="line">        context.mozImageSmoothingEnabled = <span class="literal">false</span>;</span><br><span class="line">        context.webkitImageSmoothingEnabled = <span class="literal">false</span>;</span><br><span class="line">        context.msImageSmoothingEnabled = <span class="literal">false</span>;</span><br><span class="line">        context.imageSmoothingEnabled = <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">let</span> dataURL = canvas.toDataURL(<span class="string">&#x27;image/png&#x27;</span>);</span><br><span class="line">        <span class="built_in">this</span>.createImgUrl = dataURL;</span><br><span class="line">        <span class="built_in">this</span>.fileDownload(dataURL);</span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;,</span><br><span class="line">     fileDownload (downloadUrl) &#123;</span><br><span class="line">      <span class="keyword">let</span> aLink = <span class="built_in">document</span>.createElement(<span class="string">&#x27;a&#x27;</span>);</span><br><span class="line">      aLink.style.display = <span class="string">&#x27;none&#x27;</span>;</span><br><span class="line">      aLink.href = downloadUrl;</span><br><span class="line">      aLink.download = <span class="string">&#x27;料箱条形码.png&#x27;</span>;</span><br><span class="line">      <span class="comment">// 触发点击-然后移除</span></span><br><span class="line">      <span class="built_in">document</span>.body.appendChild(aLink);</span><br><span class="line">      aLink.click();</span><br><span class="line">      <span class="built_in">document</span>.body.removeChild(aLink);</span><br><span class="line">    &#125;,</span><br></pre></td></tr></table></figure>
 
