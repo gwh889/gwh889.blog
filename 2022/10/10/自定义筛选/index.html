@@ -59,8 +59,6 @@
 			
 				<li><a href="/">主页</a></li>
 	        
-				<li><a href="/_posts">随笔</a></li>
-	        
 				<li><a href="/categories">分类</a></li>
 	        
 			</ul>
@@ -83,7 +81,7 @@
 		<nav class="header-nav">
 			<div class="social">
 				
-					<a class="github" target="_blank" href="#" title="github"><i class="icon-github"></i></a>
+					<a class="github" target="_blank" href="https://github.com/gwh889" title="github"><i class="icon-github"></i></a>
 		        
 					<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
 		        
@@ -119,14 +117,12 @@
 			
 				
 			
-				
-			
 			
 			
 			<nav class="header-nav">
 				<div class="social">
 					
-						<a class="github" target="_blank" href="#" title="github"><i class="icon-github"></i></a>
+						<a class="github" target="_blank" href="https://github.com/gwh889" title="github"><i class="icon-github"></i></a>
 			        
 						<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
 			        
@@ -138,14 +134,12 @@
 			</nav>
 
 			<nav class="header-menu js-header-menu">
-				<ul style="width: 70%">
+				<ul style="width: 50%">
 				
 				
-					<li style="width: 33.333333333333336%"><a href="/">主页</a></li>
+					<li style="width: 50%"><a href="/">主页</a></li>
 		        
-					<li style="width: 33.333333333333336%"><a href="/_posts">随笔</a></li>
-		        
-					<li style="width: 33.333333333333336%"><a href="/categories">分类</a></li>
+					<li style="width: 50%"><a href="/categories">分类</a></li>
 		        
 				</ul>
 			</nav>
@@ -179,33 +173,13 @@
       </header>
     
     <div class="article-entry" itemprop="articleBody">
-      
-        <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//从多选框中挑选作为新的筛选条件</span></span><br><span class="line">shaixuanArray:[]<span class="comment">//筛选条件数组</span></span><br><span class="line">duoxuanArray:[]<span class="comment">//多选框数组</span></span><br><span class="line">isShowDiv:<span class="literal">false</span><span class="comment">//自定义筛选条件整个框是否展示</span></span><br><span class="line">isShowBox:<span class="literal">false</span><span class="comment">//自定义筛选多选框是否显示</span></span><br><span class="line">handleClickFilter()<span class="comment">//点击自定义筛选</span></span><br><span class="line">handleClickConfirm()<span class="comment">//点击确定</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="title">handleClickFilter</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"><span class="built_in">this</span>.isShowBox=!<span class="built_in">this</span>.isShowBox;</span><br><span class="line"><span class="keyword">if</span>(<span class="built_in">this</span>.isShowBox===<span class="literal">true</span>)<span class="comment">//从筛选条件跳转到多选框</span></span><br><span class="line">  &#123;</span><br><span class="line">  	<span class="built_in">this</span>.isShowDiv=<span class="literal">true</span>;</span><br><span class="line">	<span class="built_in">this</span>.duoxuanArray=<span class="built_in">this</span>.shaixuanArray;</span><br><span class="line">  &#125;<span class="keyword">else</span>&#123;<span class="comment">//从多选框跳到筛选条件</span></span><br><span class="line">  	<span class="built_in">this</span>.shaixuanArray.length===<span class="number">0</span>?<span class="built_in">this</span>.isShowDiv=<span class="literal">false</span>:<span class="string">&#x27;&#x27;</span>;</span><br><span class="line">  &#125;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="title">handleClickConfirm</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"><span class="built_in">this</span>.isShowBox=<span class="literal">false</span>;</span><br><span class="line"><span class="built_in">this</span>.shaixuanArray=<span class="built_in">this</span>.duoxuanArray;</span><br><span class="line"><span class="keyword">if</span>(<span class="built_in">this</span>.shaixuanArray.length===<span class="number">0</span>)&#123;<span class="built_in">this</span>.isShowDiv=<span class="literal">false</span>&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+  
+ 
+	
+		<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//从多选框中挑选作为新的筛选条件</span></span><br><span class="line">shaixuanArray:[]<span class="comment">//筛选条件数组</span></span><br><span class="line">duoxuanArray:[]<span class="comment">//多选框数组</span></span><br><span class="line">isShowDiv:<span class="literal">false</span><span class="comment">//自定义筛选条件整个框是否展示</span></span><br><span class="line">isShowBox:<span class="literal">false</span><span class="comment">//自定义筛选多选框是否显示</span></span><br><span class="line">handleClickFilter()<span class="comment">//点击自定义筛选</span></span><br><span class="line">handleClickConfirm()<span class="comment">//点击确定</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="title">handleClickFilter</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"><span class="built_in">this</span>.isShowBox=!<span class="built_in">this</span>.isShowBox;</span><br><span class="line"><span class="keyword">if</span>(<span class="built_in">this</span>.isShowBox===<span class="literal">true</span>)<span class="comment">//从筛选条件跳转到多选框</span></span><br><span class="line">  &#123;</span><br><span class="line">  	<span class="built_in">this</span>.isShowDiv=<span class="literal">true</span>;</span><br><span class="line">	<span class="built_in">this</span>.duoxuanArray=<span class="built_in">this</span>.shaixuanArray;</span><br><span class="line">  &#125;<span class="keyword">else</span>&#123;<span class="comment">//从多选框跳到筛选条件</span></span><br><span class="line">  	<span class="built_in">this</span>.shaixuanArray.length===<span class="number">0</span>?<span class="built_in">this</span>.isShowDiv=<span class="literal">false</span>:<span class="string">&#x27;&#x27;</span>;</span><br><span class="line">  &#125;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="title">handleClickConfirm</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"><span class="built_in">this</span>.isShowBox=<span class="literal">false</span>;</span><br><span class="line"><span class="built_in">this</span>.shaixuanArray=<span class="built_in">this</span>.duoxuanArray;</span><br><span class="line"><span class="keyword">if</span>(<span class="built_in">this</span>.shaixuanArray.length===<span class="number">0</span>)&#123;<span class="built_in">this</span>.isShowDiv=<span class="literal">false</span>&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-      
+	
 
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
-      
     </div>
     <div class="article-info article-info-index">
       

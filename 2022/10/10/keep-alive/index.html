@@ -59,8 +59,6 @@
 			
 				<li><a href="/">主页</a></li>
 	        
-				<li><a href="/_posts">随笔</a></li>
-	        
 				<li><a href="/categories">分类</a></li>
 	        
 			</ul>
@@ -83,7 +81,7 @@
 		<nav class="header-nav">
 			<div class="social">
 				
-					<a class="github" target="_blank" href="#" title="github"><i class="icon-github"></i></a>
+					<a class="github" target="_blank" href="https://github.com/gwh889" title="github"><i class="icon-github"></i></a>
 		        
 					<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
 		        
@@ -119,14 +117,12 @@
 			
 				
 			
-				
-			
 			
 			
 			<nav class="header-nav">
 				<div class="social">
 					
-						<a class="github" target="_blank" href="#" title="github"><i class="icon-github"></i></a>
+						<a class="github" target="_blank" href="https://github.com/gwh889" title="github"><i class="icon-github"></i></a>
 			        
 						<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
 			        
@@ -138,14 +134,12 @@
 			</nav>
 
 			<nav class="header-menu js-header-menu">
-				<ul style="width: 70%">
+				<ul style="width: 50%">
 				
 				
-					<li style="width: 33.333333333333336%"><a href="/">主页</a></li>
+					<li style="width: 50%"><a href="/">主页</a></li>
 		        
-					<li style="width: 33.333333333333336%"><a href="/_posts">随笔</a></li>
-		        
-					<li style="width: 33.333333333333336%"><a href="/categories">分类</a></li>
+					<li style="width: 50%"><a href="/categories">分类</a></li>
 		        
 				</ul>
 			</nav>
@@ -179,8 +173,10 @@
       </header>
     
     <div class="article-entry" itemprop="articleBody">
-      
-        <p>需求：系统列表页设置好的筛选条件，离开本页面，下次再点进来，不会被清空。</p>
+  
+ 
+	
+		<p>需求：系统列表页设置好的筛选条件，离开本页面，下次再点进来，不会被清空。</p>
 <p>解决的方法：使用keep-alive</p>
 <p>使用方法： </p>
 <p>1.需要保存数据的组件需要用keep-alive作为外层标签，可以放在app.vue中</p>
@@ -208,30 +204,8 @@
 <p>总结： 一般情况下，我们都可以通过设置keepAlive为false清除缓存，但对于查看详情，类似于首检查看详情时，详情页会保存记录，下次再查看另一个的详情，不需要上一次的缓存，解决的办法如下： </p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//在首检详情页面添加如下代码</span></span><br><span class="line"><span class="function"><span class="title">beforeRouteLeave</span>(<span class="params">to, <span class="keyword">from</span>, next</span>)</span> &#123;</span><br><span class="line">    <span class="built_in">Array</span>.prototype.remove = <span class="function"><span class="keyword">function</span>(<span class="params">val</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">var</span> index = <span class="built_in">this</span>.indexOf(val);</span><br><span class="line">      <span class="keyword">if</span> (index &gt; -<span class="number">1</span>) &#123;</span><br><span class="line">        <span class="built_in">this</span>.splice(index, <span class="number">1</span>);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;; <span class="comment">//在数组原型上添加移除指定元素（非指定方法）</span></span><br><span class="line">    <span class="comment">//his.$vnode.parent.componentInstance.cache是keep-alive存放的缓存</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">const</span> key <span class="keyword">in</span> <span class="built_in">this</span>.$vnode.parent.componentInstance.cache) &#123;</span><br><span class="line">      <span class="comment">//删除firstInspectionDetail页面中的缓存，在该页面被完全关闭时，也就是不存在顶部导航栏里</span></span><br><span class="line">      <span class="keyword">if</span> (</span><br><span class="line">        <span class="built_in">this</span>.$vnode.parent.componentInstance.cache[key].elm.className ==</span><br><span class="line">          <span class="string">&quot;firstInspectionDetail&quot;</span> &amp;&amp;</span><br><span class="line">        <span class="built_in">this</span>.$store.state.tagsView.visitedViews.find(<span class="function"><span class="params">item</span> =&gt;</span> &#123;</span><br><span class="line">          <span class="keyword">return</span> item.name == <span class="string">&quot;firstInspectionDetail&quot;</span>;</span><br><span class="line">        &#125;) == <span class="literal">undefined</span></span><br><span class="line">      ) &#123;</span><br><span class="line">        <span class="keyword">delete</span> <span class="built_in">this</span>.$vnode.parent.componentInstance.cache[key];</span><br><span class="line">        <span class="built_in">this</span>.$vnode.parent.componentInstance.keys.remove(key);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    next();</span><br><span class="line">  &#125;,</span><br></pre></td></tr></table></figure>
 
-      
+	
 
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
-      
     </div>
     <div class="article-info article-info-index">
       

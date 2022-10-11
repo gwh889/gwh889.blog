@@ -59,8 +59,6 @@
 			
 				<li><a href="/">主页</a></li>
 	        
-				<li><a href="/_posts">随笔</a></li>
-	        
 				<li><a href="/categories">分类</a></li>
 	        
 			</ul>
@@ -83,7 +81,7 @@
 		<nav class="header-nav">
 			<div class="social">
 				
-					<a class="github" target="_blank" href="#" title="github"><i class="icon-github"></i></a>
+					<a class="github" target="_blank" href="https://github.com/gwh889" title="github"><i class="icon-github"></i></a>
 		        
 					<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
 		        
@@ -119,14 +117,12 @@
 			
 				
 			
-				
-			
 			
 			
 			<nav class="header-nav">
 				<div class="social">
 					
-						<a class="github" target="_blank" href="#" title="github"><i class="icon-github"></i></a>
+						<a class="github" target="_blank" href="https://github.com/gwh889" title="github"><i class="icon-github"></i></a>
 			        
 						<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
 			        
@@ -138,14 +134,12 @@
 			</nav>
 
 			<nav class="header-menu js-header-menu">
-				<ul style="width: 70%">
+				<ul style="width: 50%">
 				
 				
-					<li style="width: 33.333333333333336%"><a href="/">主页</a></li>
+					<li style="width: 50%"><a href="/">主页</a></li>
 		        
-					<li style="width: 33.333333333333336%"><a href="/_posts">随笔</a></li>
-		        
-					<li style="width: 33.333333333333336%"><a href="/categories">分类</a></li>
+					<li style="width: 50%"><a href="/categories">分类</a></li>
 		        
 				</ul>
 			</nav>
@@ -179,8 +173,10 @@
       </header>
     
     <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="前端面试题"><a href="#前端面试题" class="headerlink" title="前端面试题"></a>前端面试题</h1><p>1.以下操作输出了什么？</p>
+  
+ 
+	
+		<h1 id="前端面试题"><a href="#前端面试题" class="headerlink" title="前端面试题"></a>前端面试题</h1><p>1.以下操作输出了什么？</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>];</span><br><span class="line">arr.pop();</span><br><span class="line">arr.concat([<span class="number">6</span>,<span class="number">7</span>]);</span><br><span class="line">arr.push(<span class="number">8</span>);</span><br><span class="line">arr.reverse();</span><br><span class="line"><span class="built_in">console</span>.log(arr); </span><br><span class="line"><span class="comment">//结果：[8, 4, 3, 2, 1]</span></span><br><span class="line"><span class="comment">//因为concat返回的是一个新的数组，原数组不会改变</span></span><br></pre></td></tr></table></figure>
 <p>2.方法 test()和obj.test() 输出什么？为什么？</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> name = <span class="string">&#x27;global&#x27;</span>;</span><br><span class="line"><span class="keyword">const</span> obj = &#123;</span><br><span class="line">    name:<span class="string">&#x27;obj&#x27;</span>,</span><br><span class="line">    test:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">let</span> name = <span class="string">&#x27;scope&#x27;</span>;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="built_in">this</span>.name);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> test = obj.test;</span><br><span class="line">test();  <span class="comment">// global</span></span><br><span class="line">obj.test(); <span class="comment">//obj</span></span><br></pre></td></tr></table></figure>
@@ -210,30 +206,8 @@
 <p>方法二：  </p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Query</span> </span>&#123;</span><br><span class="line">    <span class="title">constructor</span> (<span class="params">dataList</span>) &#123;</span><br><span class="line">        <span class="built_in">this</span>.dataList = dataList</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    where (conditions) &#123;</span><br><span class="line">        <span class="keyword">const</span> keyList = <span class="built_in">Object</span>.keys(conditions)</span><br><span class="line">        <span class="keyword">const</span> dataList = <span class="built_in">this</span>.dataList.filter(<span class="function"><span class="params">data</span> =&gt;</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> keyList.every(<span class="function"><span class="params">k</span> =&gt;</span> conditions[k].test(data[k]))</span><br><span class="line">        &#125;)</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> Query(dataList)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="title">orderBy</span>(<span class="params">key, orderType</span>)</span> &#123;</span><br><span class="line">        <span class="keyword">const</span> func = <span class="function">(<span class="params">a, b</span>) =&gt;</span> (a[key] - b[key]) * (orderType == <span class="string">&#x27;desc&#x27;</span> ? -<span class="number">1</span> : <span class="number">1</span>)</span><br><span class="line">        <span class="keyword">const</span> list = [...this.dataList].sort(func)</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> Query(list)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">find</span> (<span class="params">dataList</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> Query(dataList)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> data = [</span><br><span class="line">  &#123; <span class="attr">userId</span>: <span class="number">8</span>, <span class="attr">title</span>: <span class="string">&quot;title1&quot;</span> &#125;,</span><br><span class="line">  &#123; <span class="attr">userId</span>: <span class="number">11</span>, <span class="attr">title</span>: <span class="string">&quot;other&quot;</span> &#125;,</span><br><span class="line">  &#123; <span class="attr">userId</span>: <span class="number">15</span>, <span class="attr">title</span>: <span class="literal">null</span> &#125;,</span><br><span class="line">  &#123; <span class="attr">userId</span>: <span class="number">19</span>, <span class="attr">title</span>: <span class="string">&quot;title2&quot;</span> &#125;</span><br><span class="line">];</span><br><span class="line"><span class="comment">// 查找data中，符合where中条件的数据，并根据orderBy中的条件进行排序</span></span><br><span class="line"><span class="keyword">var</span> result = find(data)</span><br><span class="line">  .where(&#123;</span><br><span class="line">    title: <span class="regexp">/\d$/</span> <span class="comment">//过滤出数组中，满足title字段中符合/\d$/的项</span></span><br><span class="line">  &#125;)</span><br><span class="line">  .orderBy(<span class="string">&quot;userId&quot;</span>, <span class="string">&quot;desc&quot;</span>); <span class="comment">//数组中的项按照userId进行倒序排列</span></span><br><span class="line"><span class="built_in">console</span>.log(result);</span><br></pre></td></tr></table></figure>
 
-      
+	
 
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
-      
     </div>
     <div class="article-info article-info-index">
       

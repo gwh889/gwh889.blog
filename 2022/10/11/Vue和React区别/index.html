@@ -62,8 +62,6 @@
 			
 				<li><a href="/">主页</a></li>
 	        
-				<li><a href="/_posts">随笔</a></li>
-	        
 				<li><a href="/categories">分类</a></li>
 	        
 			</ul>
@@ -86,7 +84,7 @@
 		<nav class="header-nav">
 			<div class="social">
 				
-					<a class="github" target="_blank" href="#" title="github"><i class="icon-github"></i></a>
+					<a class="github" target="_blank" href="https://github.com/gwh889" title="github"><i class="icon-github"></i></a>
 		        
 					<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
 		        
@@ -122,14 +120,12 @@
 			
 				
 			
-				
-			
 			
 			
 			<nav class="header-nav">
 				<div class="social">
 					
-						<a class="github" target="_blank" href="#" title="github"><i class="icon-github"></i></a>
+						<a class="github" target="_blank" href="https://github.com/gwh889" title="github"><i class="icon-github"></i></a>
 			        
 						<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
 			        
@@ -141,14 +137,12 @@
 			</nav>
 
 			<nav class="header-menu js-header-menu">
-				<ul style="width: 70%">
+				<ul style="width: 50%">
 				
 				
-					<li style="width: 33.333333333333336%"><a href="/">主页</a></li>
+					<li style="width: 50%"><a href="/">主页</a></li>
 		        
-					<li style="width: 33.333333333333336%"><a href="/_posts">随笔</a></li>
-		        
-					<li style="width: 33.333333333333336%"><a href="/categories">分类</a></li>
+					<li style="width: 50%"><a href="/categories">分类</a></li>
 		        
 				</ul>
 			</nav>
@@ -182,8 +176,10 @@
       </header>
     
     <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="一、Vue和React（基于自我可以理解的程度）"><a href="#一、Vue和React（基于自我可以理解的程度）" class="headerlink" title="一、Vue和React（基于自我可以理解的程度）"></a>一、Vue和React（基于自我可以理解的程度）</h2><h3 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h3><p>1.在 React 应用中，当某个组件的状态发生变化时，它会以该组件为根，重新渲染整个组件子树。在 Vue 应用中，组件的依赖是在渲染过程中自动追踪的，所以系统能精确知晓哪个组件确实需要被重渲染。</p>
+  
+ 
+	
+		<h2 id="一、Vue和React（基于自我可以理解的程度）"><a href="#一、Vue和React（基于自我可以理解的程度）" class="headerlink" title="一、Vue和React（基于自我可以理解的程度）"></a>一、Vue和React（基于自我可以理解的程度）</h2><h3 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h3><p>1.在 React 应用中，当某个组件的状态发生变化时，它会以该组件为根，重新渲染整个组件子树。在 Vue 应用中，组件的依赖是在渲染过程中自动追踪的，所以系统能精确知晓哪个组件确实需要被重渲染。</p>
 <p>2.在 React 中，一切都是 JavaScript。不仅仅是 HTML 可以用 JSX 来表达，现在的潮流也越来越多地将 CSS 也纳入到 JavaScript 中来处理。Vue 的整体思想是拥抱经典的 Web 技术，整体上还是html，js，css三部分</p>
 <p>3.在 React 中，所有的组件的渲染功能都依靠 JSX渲染函数。JSX 是使用 XML 语法编写 JavaScript 的一种语法糖。事实上 Vue 也提供了<a target="_blank" rel="noopener" href="https://cn.vuejs.org/v2/guide/render-function.html">渲染函数</a>，甚至<a target="_blank" rel="noopener" href="https://cn.vuejs.org/v2/guide/render-function.html#JSX">支持 JSX</a>。然而，我们默认推荐的还是模板。</p>
 <p>4.更抽象一点来看，我们可以把组件区分为两类：一类是偏视图表现的 (presentational)，一类则是偏逻辑的 (logical)。我们推荐在前者中使用模板，在后者中使用 JSX 或渲染函数。</p>
@@ -394,30 +390,8 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;页面刷新参数不会丢失，路由路径，传一个或多个</span><br><span class="line">this.$router.push(&#123;</span><br><span class="line">  path: &#39;&#x2F;detail&#39;,</span><br><span class="line">  query: &#123;</span><br><span class="line">    name: &#39;张三&#39;，</span><br><span class="line">    id: 1,</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;页面刷新，参数丢失，路由名称，传一个或者多个</span><br><span class="line">this.$router.push(&#123;</span><br><span class="line">  name: &#39;Detail&#39;,</span><br><span class="line">  params: &#123;</span><br><span class="line">    name: &#39;张三&#39;，</span><br><span class="line">    id: 1,</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 
-      
+	
 
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
-      
     </div>
     <div class="article-info article-info-index">
       
@@ -490,7 +464,7 @@
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          (no title)
+          js基础
         
       </div>
     </a>
