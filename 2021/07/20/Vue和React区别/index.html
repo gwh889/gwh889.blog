@@ -15,13 +15,13 @@
 <meta property="og:site_name" content="个人学习博客">
 <meta property="og:description" content="一、Vue和React（基于自我可以理解的程度）区别1.在 React 应用中，当某个组件的状态发生变化时，它会以该组件为根，重新渲染整个组件子树。在 Vue 应用中，组件的依赖是在渲染过程中自动追踪的，所以系统能精确知晓哪个组件确实需要被重渲染。 2.在 React 中，一切都是 JavaScript。不仅仅是 HTML 可以用 JSX 来表达，现在的潮流也越来越多地将 CSS 也纳入到 Jav">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://example.com/2021/07/20/Vue%E5%92%8CReact%E5%8C%BA%E5%88%AB/.assets/1687094-20190513234650178-610052132.png">
-<meta property="og:image" content="http://example.com/2021/07/20/Vue%E5%92%8CReact%E5%8C%BA%E5%88%AB/.assets/bV17xC-1626001240832">
+<meta property="og:image" content="http://example.com/.com//1687094-20190513234650178-610052132.png">
+<meta property="og:image" content="http://example.com/.com//bV17xC-1626001240832">
 <meta property="article:published_time" content="2021-07-19T16:00:00.000Z">
 <meta property="article:modified_time" content="2022-10-11T05:54:20.602Z">
 <meta property="article:author" content="GWH">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/2021/07/20/Vue%E5%92%8CReact%E5%8C%BA%E5%88%AB/.assets/1687094-20190513234650178-610052132.png">
+<meta name="twitter:image" content="http://example.com/.com//1687094-20190513234650178-610052132.png">
   
     <link rel="alternative" href="/atom.xml" title="个人学习博客" type="application/atom+xml">
   
@@ -218,7 +218,7 @@
 <p>  (2)对象this.$router.push({path:’home’})</p>
 <p>  (3)命名的路由this.$router.push({name:’user’,params:{userId:123}})</p>
 <p>  (4)带查询参数，变成 /register?plan=123this.$router.push({path:’register’,query:{plan:’123’}})</p>
-<p>​       push方法其实和<router-link :to="...">是等同的。</p>
+<p>​       push方法其实和<router-link :to="...">是等同的。</router-link></p>
 <p>  注意：push方法的跳转会向 history 栈添加一个新的记录，当我们点击浏览器的返回按钮时可以看到之前的页面。</p>
 <h5 id="2、go"><a href="#2、go" class="headerlink" title="2、go"></a><strong>2、go</strong></h5><p>   页面路由跳转，前进或者后退this.$router.go(-1) // 后退</p>
 <h5 id="3、replace"><a href="#3、replace" class="headerlink" title="3、replace"></a>3、replace</h5><p>  push方法会向 history 栈添加一个新的记录，而replace方法是替换当前的页面，</p>
@@ -256,7 +256,7 @@
 <p><strong>多页面应用</strong>（MPA)</p>
 <p>一个项目是由多个完整的html页面组成，页面跳转所有的资源都要重新加载，页面之间的切换会出现卡顿空白的问题，不容易实现切换动画等</p>
 <p>eg：Vue配置打包多入口文件</p>
-<p><img src=".assets/1687094-20190513234650178-610052132.png" alt="img"></p>
+<p><img src="/.com//1687094-20190513234650178-610052132.png" alt="img"></p>
 <h3 id="9-SSR（服务端渲染）"><a href="#9-SSR（服务端渲染）" class="headerlink" title="9.SSR（服务端渲染）"></a>9.SSR（服务端渲染）</h3><h4 id="客户端渲染："><a href="#客户端渲染：" class="headerlink" title="客户端渲染："></a>客户端渲染：</h4><p>在服务端放了一个html 页面，里面有客户端发起请求，服务端把页面（响应的是字符串）发送过去，客户端从上到下依次解析，如果在解析的过程中，发现ajax请求，再次像服务器发送新的请求，客户端拿到ajax 响应结果，模板引擎渲染。过程至少和服务端发起两次请求</p>
 <h4 id="SSR：服务端渲染"><a href="#SSR：服务端渲染" class="headerlink" title="SSR：服务端渲染"></a>SSR：服务端渲染</h4><p>sever 端页面+数据，服务端过程：1.读取index.html 2.模版进行渲染，在发送给客户端之前，在服务端已经把index.html 渲染处理了。var 渲染结果 = tempeter.render(模板字符串，｛解析替换对象｝) response.end(渲染结果)，服务端响应的就是最总的结果</p>
 <p>服务端只请求一次</p>
@@ -315,7 +315,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">（1）所有同步任务都在主线程上执行，形成一个执行栈（execution context stack）。</span><br><span class="line">（2）主线程之外，还存在一个&quot;任务队列&quot;（task queue）。只要异步任务有了运行结果，就在&quot;任务队列&quot;之中放置一个事件。</span><br><span class="line">（3）一旦&quot;执行栈&quot;中的所有同步任务执行完毕，系统就会读取&quot;任务队列&quot;，看看里面有哪些事件。那些对应的异步任务，于是结束等待状态，进入执行栈，开始执行。</span><br><span class="line">（4）主线程不断重复上面的第三步。</span><br></pre></td></tr></table></figure>
 <h4 id="事件循环"><a href="#事件循环" class="headerlink" title="事件循环"></a>事件循环</h4><p>简单来说，Vue 在修改数据后，视图不会立刻更新，而是等<strong>同一事件循环</strong>中的所有数据变化完成之后，再统一进行视图更新。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;改变数据</span><br><span class="line">vm.message &#x3D; &#39;changed&#39;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;想要立即使用更新后的DOM。这样不行，因为设置message后DOM还没有更新</span><br><span class="line">console.log(vm.$el.textContent) &#x2F;&#x2F; 并不会得到&#39;changed&#39;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;这样可以，nextTick里面的代码会在DOM更新后执行</span><br><span class="line">Vue.nextTick(function()&#123;</span><br><span class="line">    console.log(vm.$el.textContent) &#x2F;&#x2F;可以得到&#39;changed&#39;</span><br></pre></td></tr></table></figure>
-<p><img src=".assets/bV17xC-1626001240832" alt="clipboard.png"></p>
+<p><img src="/.com//bV17xC-1626001240832" alt="clipboard.png"></p>
 <p>第一个 tick（图例中第一个步骤，即’本次更新循环’）：</p>
 <ol>
 <li>首先修改数据，这是同步任务。同一事件循环的所有的同步任务都在主线程上执行，形成一个执行栈，此时还未涉及 DOM 。</li>
@@ -460,18 +460,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2021/07/20/%E8%A1%A8%E6%A0%BC%E8%AE%BE%E7%BD%AE%E7%BB%84%E4%BB%B6%E5%8C%96/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2021/07/20/%E9%A1%B5%E9%9D%A2%E5%A4%A7%E5%9B%BE%E8%87%AA%E9%80%82%E5%BA%94/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          表格组件化
+          监控大屏自适应
         
       </div>
     </a>
   
   
-    <a href="/2021/07/20/%E9%A1%B5%E9%9D%A2%E5%A4%A7%E5%9B%BE%E8%87%AA%E9%80%82%E5%BA%94/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">监控大屏自适应</div>
+    <a href="/2021/03/13/%E5%88%9B%E5%BB%BAVue3.0%E9%A1%B9%E7%9B%AE/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">创建vue项目</div>
       <i class="icon-circle-right"></i>
     </a>
   
