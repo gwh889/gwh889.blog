@@ -154,70 +154,6 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-test" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/10/11/test/">test</a>
-    </h1>
-  
-
-        
-        <a href="/2022/10/11/test/" class="archive-article-date">
-  	<time datetime="2022-10-11T06:47:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-10-11</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-  
- 
-	
-		<p><img src="/.com//1.png"></p>
-
-	
-
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/10/11/test/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
     <article id="post-js" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1026,7 +962,7 @@
 <p>9.小程序上传图片会生成一个虚拟地址，如果要用formData解析（readFileSync只能读取本地路径），提交接口必须传递这个本地的虚拟地址，如果有保存草稿功能，下次进来可以看到上次上传的图片，并可以直接提交，需要后端也返回这个虚拟的本地地址</p>
 <p>10.小程序中获取dom节点的方法</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">this</span>.selectComponent(<span class="string">&quot;#list&quot;</span>)</span><br></pre></td></tr></table></figure>
-<p>11.vant中toast组件中不能设置节点，要在组件所在的页面中写<van-toast id="van-toast"><br>12.双向绑定的局限性： model: value只限于普通键值对，若是对象里的键值对则无效</van-toast></p>
+<p>11.vant中toast组件中不能设置节点，要在组件所在的页面中写<van-toast id="van-toast" /><br>12.双向绑定的局限性： model: value只限于普通键值对，若是对象里的键值对则无效</p>
 <p>13.使用apply改变指向null，如…展开运算符</p>
 <p>14.小程序原生组件textarea和vant中弹出层Popup一起使用，textarea会漂浮在Popup上，可能是因为原生组件的原因，或者是本身的bug，解决办法是在Popup弹出的时候暂时性将textarea隐藏</p>
 <p>15.上传文件：  本地调试时上传的文件应该是放到微信的云服务器上，所以会生成一个虚拟地址<a target="_blank" rel="noopener" href="http://temp/+%E6%96%87%E4%BB%B6%E5%90%8D%EF%BC%8C%E8%AF%BB%E5%8F%96%E4%B8%8E%E4%B8%8A%E4%BC%A0%E9%83%BD%E7%94%A8%E8%BF%99%E4%B8%AA%E8%99%9A%E6%8B%9F%E5%9C%B0%E5%9D%80%E6%B2%A1%E9%97%AE%E9%A2%98%E3%80%82">http://temp/+文件名，读取与上传都用这个虚拟地址没问题。</a></p>
@@ -1170,6 +1106,70 @@
 
 
   
+    <article id="post-自定义筛选" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/07/20/%E8%87%AA%E5%AE%9A%E4%B9%89%E7%AD%9B%E9%80%89/">自定义筛选条件</a>
+    </h1>
+  
+
+        
+        <a href="/2021/07/20/%E8%87%AA%E5%AE%9A%E4%B9%89%E7%AD%9B%E9%80%89/" class="archive-article-date">
+  	<time datetime="2021-07-19T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-07-20</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+  
+ 
+	
+		<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//从多选框中挑选作为新的筛选条件</span></span><br><span class="line">shaixuanArray:[]<span class="comment">//筛选条件数组</span></span><br><span class="line">duoxuanArray:[]<span class="comment">//多选框数组</span></span><br><span class="line">isShowDiv:<span class="literal">false</span><span class="comment">//自定义筛选条件整个框是否展示</span></span><br><span class="line">isShowBox:<span class="literal">false</span><span class="comment">//自定义筛选多选框是否显示</span></span><br><span class="line">handleClickFilter()<span class="comment">//点击自定义筛选</span></span><br><span class="line">handleClickConfirm()<span class="comment">//点击确定</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="title">handleClickFilter</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"><span class="built_in">this</span>.isShowBox=!<span class="built_in">this</span>.isShowBox;</span><br><span class="line"><span class="keyword">if</span>(<span class="built_in">this</span>.isShowBox===<span class="literal">true</span>)<span class="comment">//从筛选条件跳转到多选框</span></span><br><span class="line">  &#123;</span><br><span class="line">  	<span class="built_in">this</span>.isShowDiv=<span class="literal">true</span>;</span><br><span class="line">	<span class="built_in">this</span>.duoxuanArray=<span class="built_in">this</span>.shaixuanArray;</span><br><span class="line">  &#125;<span class="keyword">else</span>&#123;<span class="comment">//从多选框跳到筛选条件</span></span><br><span class="line">  	<span class="built_in">this</span>.shaixuanArray.length===<span class="number">0</span>?<span class="built_in">this</span>.isShowDiv=<span class="literal">false</span>:<span class="string">&#x27;&#x27;</span>;</span><br><span class="line">  &#125;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="title">handleClickConfirm</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"><span class="built_in">this</span>.isShowBox=<span class="literal">false</span>;</span><br><span class="line"><span class="built_in">this</span>.shaixuanArray=<span class="built_in">this</span>.duoxuanArray;</span><br><span class="line"><span class="keyword">if</span>(<span class="built_in">this</span>.shaixuanArray.length===<span class="number">0</span>)&#123;<span class="built_in">this</span>.isShowDiv=<span class="literal">false</span>&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+	
+
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/07/20/%E8%87%AA%E5%AE%9A%E4%B9%89%E7%AD%9B%E9%80%89/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-表格设置组件化" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1253,19 +1253,19 @@
 
 
   
-    <article id="post-自定义筛选" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-页面大图自适应" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2021/07/20/%E8%87%AA%E5%AE%9A%E4%B9%89%E7%AD%9B%E9%80%89/">自定义筛选条件</a>
+      <a class="article-title" href="/2021/07/20/%E9%A1%B5%E9%9D%A2%E5%A4%A7%E5%9B%BE%E8%87%AA%E9%80%82%E5%BA%94/">监控大屏自适应</a>
     </h1>
   
 
         
-        <a href="/2021/07/20/%E8%87%AA%E5%AE%9A%E4%B9%89%E7%AD%9B%E9%80%89/" class="archive-article-date">
+        <a href="/2021/07/20/%E9%A1%B5%E9%9D%A2%E5%A4%A7%E5%9B%BE%E8%87%AA%E9%80%82%E5%BA%94/" class="archive-article-date">
   	<time datetime="2021-07-19T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-07-20</time>
 </a>
         
@@ -1275,7 +1275,10 @@
   
  
 	
-		<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//从多选框中挑选作为新的筛选条件</span></span><br><span class="line">shaixuanArray:[]<span class="comment">//筛选条件数组</span></span><br><span class="line">duoxuanArray:[]<span class="comment">//多选框数组</span></span><br><span class="line">isShowDiv:<span class="literal">false</span><span class="comment">//自定义筛选条件整个框是否展示</span></span><br><span class="line">isShowBox:<span class="literal">false</span><span class="comment">//自定义筛选多选框是否显示</span></span><br><span class="line">handleClickFilter()<span class="comment">//点击自定义筛选</span></span><br><span class="line">handleClickConfirm()<span class="comment">//点击确定</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="title">handleClickFilter</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"><span class="built_in">this</span>.isShowBox=!<span class="built_in">this</span>.isShowBox;</span><br><span class="line"><span class="keyword">if</span>(<span class="built_in">this</span>.isShowBox===<span class="literal">true</span>)<span class="comment">//从筛选条件跳转到多选框</span></span><br><span class="line">  &#123;</span><br><span class="line">  	<span class="built_in">this</span>.isShowDiv=<span class="literal">true</span>;</span><br><span class="line">	<span class="built_in">this</span>.duoxuanArray=<span class="built_in">this</span>.shaixuanArray;</span><br><span class="line">  &#125;<span class="keyword">else</span>&#123;<span class="comment">//从多选框跳到筛选条件</span></span><br><span class="line">  	<span class="built_in">this</span>.shaixuanArray.length===<span class="number">0</span>?<span class="built_in">this</span>.isShowDiv=<span class="literal">false</span>:<span class="string">&#x27;&#x27;</span>;</span><br><span class="line">  &#125;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="title">handleClickConfirm</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"><span class="built_in">this</span>.isShowBox=<span class="literal">false</span>;</span><br><span class="line"><span class="built_in">this</span>.shaixuanArray=<span class="built_in">this</span>.duoxuanArray;</span><br><span class="line"><span class="keyword">if</span>(<span class="built_in">this</span>.shaixuanArray.length===<span class="number">0</span>)&#123;<span class="built_in">this</span>.isShowDiv=<span class="literal">false</span>&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+		<p>监控大图的制作主要考虑自适应的问题，根据屏幕大小进行自动伸缩的一个功能。制作大图可以选择使用rem布局和百分比布局，如果选择使用rem布局，可以在前端配置一个postcss-px2rem ，px2rem-loader进行适配，可以scss直接以方法的形式定义变量，在css代码中则使用px2rem(20px)来定义宽高。</p>
+<p>做大图时会遇到图表的一个自适应，默认向echarts图表是不会自适应的，需要自己手动设置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;div ref&#x3D;&quot;harvest&quot; id&#x3D;&quot;shape&quot; style&#x3D;&quot;width:100%;height:350px&quot;&gt;&lt;&#x2F;div&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">export default &#123;</span><br><span class="line">    data()&#123;</span><br><span class="line">        return&#123;</span><br><span class="line">			resizeTimer: null,</span><br><span class="line">    	    harvest: null,</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    mounted() &#123;</span><br><span class="line">        let harvest &#x3D; this.$echarts.init(this.$refs.harvest);</span><br><span class="line">      	let _this &#x3D; this;</span><br><span class="line">     	 _this.harvest &#x3D; harvest;</span><br><span class="line">         harvest.setOption(this.makeOption());</span><br><span class="line">        </span><br><span class="line">         window.addEventListener(&quot;resize&quot;, function() &#123;</span><br><span class="line">            if (_this.resizeTimer) &#123;</span><br><span class="line">              clearTimeout(_this.resizeTimer);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            if (_this.harvest) &#123;</span><br><span class="line">              _this.resizeTimer &#x3D; setTimeout(function() &#123;</span><br><span class="line">                _this.harvest.resize();</span><br><span class="line">              &#125;, 100);</span><br><span class="line">            &#125;</span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
 
 	
 
@@ -1287,7 +1290,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2021/07/20/%E8%87%AA%E5%AE%9A%E4%B9%89%E7%AD%9B%E9%80%89/">展开全文 >></a>
+          <a class="article-more-a" href="/2021/07/20/%E9%A1%B5%E9%9D%A2%E5%A4%A7%E5%9B%BE%E8%87%AA%E9%80%82%E5%BA%94/">展开全文 >></a>
         </p>
       
 

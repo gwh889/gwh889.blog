@@ -211,7 +211,7 @@
 <p>9.小程序上传图片会生成一个虚拟地址，如果要用formData解析（readFileSync只能读取本地路径），提交接口必须传递这个本地的虚拟地址，如果有保存草稿功能，下次进来可以看到上次上传的图片，并可以直接提交，需要后端也返回这个虚拟的本地地址</p>
 <p>10.小程序中获取dom节点的方法</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">this</span>.selectComponent(<span class="string">&quot;#list&quot;</span>)</span><br></pre></td></tr></table></figure>
-<p>11.vant中toast组件中不能设置节点，要在组件所在的页面中写<van-toast id="van-toast"><br>12.双向绑定的局限性： model: value只限于普通键值对，若是对象里的键值对则无效</van-toast></p>
+<p>11.vant中toast组件中不能设置节点，要在组件所在的页面中写<van-toast id="van-toast" /><br>12.双向绑定的局限性： model: value只限于普通键值对，若是对象里的键值对则无效</p>
 <p>13.使用apply改变指向null，如…展开运算符</p>
 <p>14.小程序原生组件textarea和vant中弹出层Popup一起使用，textarea会漂浮在Popup上，可能是因为原生组件的原因，或者是本身的bug，解决办法是在Popup弹出的时候暂时性将textarea隐藏</p>
 <p>15.上传文件：  本地调试时上传的文件应该是放到微信的云服务器上，所以会生成一个虚拟地址<a target="_blank" rel="noopener" href="http://temp/+%E6%96%87%E4%BB%B6%E5%90%8D%EF%BC%8C%E8%AF%BB%E5%8F%96%E4%B8%8E%E4%B8%8A%E4%BC%A0%E9%83%BD%E7%94%A8%E8%BF%99%E4%B8%AA%E8%99%9A%E6%8B%9F%E5%9C%B0%E5%9D%80%E6%B2%A1%E9%97%AE%E9%A2%98%E3%80%82">http://temp/+文件名，读取与上传都用这个虚拟地址没问题。</a></p>

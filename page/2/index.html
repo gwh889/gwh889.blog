@@ -154,73 +154,6 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-页面大图自适应" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/07/20/%E9%A1%B5%E9%9D%A2%E5%A4%A7%E5%9B%BE%E8%87%AA%E9%80%82%E5%BA%94/">监控大屏自适应</a>
-    </h1>
-  
-
-        
-        <a href="/2021/07/20/%E9%A1%B5%E9%9D%A2%E5%A4%A7%E5%9B%BE%E8%87%AA%E9%80%82%E5%BA%94/" class="archive-article-date">
-  	<time datetime="2021-07-19T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-07-20</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-  
- 
-	
-		<p>监控大图的制作主要考虑自适应的问题，根据屏幕大小进行自动伸缩的一个功能。制作大图可以选择使用rem布局和百分比布局，如果选择使用rem布局，可以在前端配置一个postcss-px2rem ，px2rem-loader进行适配，可以scss直接以方法的形式定义变量，在css代码中则使用px2rem(20px)来定义宽高。</p>
-<p>做大图时会遇到图表的一个自适应，默认向echarts图表是不会自适应的，需要自己手动设置</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;div ref&#x3D;&quot;harvest&quot; id&#x3D;&quot;shape&quot; style&#x3D;&quot;width:100%;height:350px&quot;&gt;&lt;&#x2F;div&gt;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">export default &#123;</span><br><span class="line">    data()&#123;</span><br><span class="line">        return&#123;</span><br><span class="line">			resizeTimer: null,</span><br><span class="line">    	    harvest: null,</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    mounted() &#123;</span><br><span class="line">        let harvest &#x3D; this.$echarts.init(this.$refs.harvest);</span><br><span class="line">      	let _this &#x3D; this;</span><br><span class="line">     	 _this.harvest &#x3D; harvest;</span><br><span class="line">         harvest.setOption(this.makeOption());</span><br><span class="line">        </span><br><span class="line">         window.addEventListener(&quot;resize&quot;, function() &#123;</span><br><span class="line">            if (_this.resizeTimer) &#123;</span><br><span class="line">              clearTimeout(_this.resizeTimer);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            if (_this.harvest) &#123;</span><br><span class="line">              _this.resizeTimer &#x3D; setTimeout(function() &#123;</span><br><span class="line">                _this.harvest.resize();</span><br><span class="line">              &#125;, 100);</span><br><span class="line">            &#125;</span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
-
-	
-
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/07/20/%E9%A1%B5%E9%9D%A2%E5%A4%A7%E5%9B%BE%E8%87%AA%E9%80%82%E5%BA%94/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
     <article id="post-Vue和React区别" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -282,7 +215,7 @@
 <p>  (2)对象this.$router.push({path:’home’})</p>
 <p>  (3)命名的路由this.$router.push({name:’user’,params:{userId:123}})</p>
 <p>  (4)带查询参数，变成 /register?plan=123this.$router.push({path:’register’,query:{plan:’123’}})</p>
-<p>​       push方法其实和<router-link :to="...">是等同的。</router-link></p>
+<p>​       push方法其实和<router-link :to="...">是等同的。</p>
 <p>  注意：push方法的跳转会向 history 栈添加一个新的记录，当我们点击浏览器的返回按钮时可以看到之前的页面。</p>
 <h5 id="2、go"><a href="#2、go" class="headerlink" title="2、go"></a><strong>2、go</strong></h5><p>   页面路由跳转，前进或者后退this.$router.go(-1) // 后退</p>
 <h5 id="3、replace"><a href="#3、replace" class="headerlink" title="3、replace"></a>3、replace</h5><p>  push方法会向 history 栈添加一个新的记录，而replace方法是替换当前的页面，</p>
@@ -320,7 +253,7 @@
 <p><strong>多页面应用</strong>（MPA)</p>
 <p>一个项目是由多个完整的html页面组成，页面跳转所有的资源都要重新加载，页面之间的切换会出现卡顿空白的问题，不容易实现切换动画等</p>
 <p>eg：Vue配置打包多入口文件</p>
-<p><img src="/.com//1687094-20190513234650178-610052132.png" alt="img"></p>
+<p><img src=".assets/1687094-20190513234650178-610052132.png" alt="img"></p>
 <h3 id="9-SSR（服务端渲染）"><a href="#9-SSR（服务端渲染）" class="headerlink" title="9.SSR（服务端渲染）"></a>9.SSR（服务端渲染）</h3><h4 id="客户端渲染："><a href="#客户端渲染：" class="headerlink" title="客户端渲染："></a>客户端渲染：</h4><p>在服务端放了一个html 页面，里面有客户端发起请求，服务端把页面（响应的是字符串）发送过去，客户端从上到下依次解析，如果在解析的过程中，发现ajax请求，再次像服务器发送新的请求，客户端拿到ajax 响应结果，模板引擎渲染。过程至少和服务端发起两次请求</p>
 <h4 id="SSR：服务端渲染"><a href="#SSR：服务端渲染" class="headerlink" title="SSR：服务端渲染"></a>SSR：服务端渲染</h4><p>sever 端页面+数据，服务端过程：1.读取index.html 2.模版进行渲染，在发送给客户端之前，在服务端已经把index.html 渲染处理了。var 渲染结果 = tempeter.render(模板字符串，｛解析替换对象｝) response.end(渲染结果)，服务端响应的就是最总的结果</p>
 <p>服务端只请求一次</p>
@@ -379,7 +312,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">（1）所有同步任务都在主线程上执行，形成一个执行栈（execution context stack）。</span><br><span class="line">（2）主线程之外，还存在一个&quot;任务队列&quot;（task queue）。只要异步任务有了运行结果，就在&quot;任务队列&quot;之中放置一个事件。</span><br><span class="line">（3）一旦&quot;执行栈&quot;中的所有同步任务执行完毕，系统就会读取&quot;任务队列&quot;，看看里面有哪些事件。那些对应的异步任务，于是结束等待状态，进入执行栈，开始执行。</span><br><span class="line">（4）主线程不断重复上面的第三步。</span><br></pre></td></tr></table></figure>
 <h4 id="事件循环"><a href="#事件循环" class="headerlink" title="事件循环"></a>事件循环</h4><p>简单来说，Vue 在修改数据后，视图不会立刻更新，而是等<strong>同一事件循环</strong>中的所有数据变化完成之后，再统一进行视图更新。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;改变数据</span><br><span class="line">vm.message &#x3D; &#39;changed&#39;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;想要立即使用更新后的DOM。这样不行，因为设置message后DOM还没有更新</span><br><span class="line">console.log(vm.$el.textContent) &#x2F;&#x2F; 并不会得到&#39;changed&#39;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;这样可以，nextTick里面的代码会在DOM更新后执行</span><br><span class="line">Vue.nextTick(function()&#123;</span><br><span class="line">    console.log(vm.$el.textContent) &#x2F;&#x2F;可以得到&#39;changed&#39;</span><br></pre></td></tr></table></figure>
-<p><img src="/.com//bV17xC-1626001240832" alt="clipboard.png"></p>
+<p><img src=".assets/bV17xC-1626001240832" alt="clipboard.png"></p>
 <p>第一个 tick（图例中第一个步骤，即’本次更新循环’）：</p>
 <ol>
 <li>首先修改数据，这是同步任务。同一事件循环的所有的同步任务都在主线程上执行，形成一个执行栈，此时还未涉及 DOM 。</li>
@@ -494,6 +427,95 @@
 
 
   
+    <article id="post-vue创建项目" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/03/13/vue%E5%88%9B%E5%BB%BA%E9%A1%B9%E7%9B%AE/">创建vue项目</a>
+    </h1>
+  
+
+        
+        <a href="/2021/03/13/vue%E5%88%9B%E5%BB%BA%E9%A1%B9%E7%9B%AE/" class="archive-article-date">
+  	<time datetime="2021-03-12T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-13</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+  
+ 
+	
+		<p>使用脚手架3.0创建Vue2.0项目</p>
+<p>到指定文件目录下，打开cmd控制台，输入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vue create aoyafont-padnew  &#x2F;&#x2F;aoyafont-padnew为项目名</span><br></pre></td></tr></table></figure>
+<p>依次选择：</p>
+<p>手动选择配置</p>
+<img src="/2021/03/13/vue%E5%88%9B%E5%BB%BA%E9%A1%B9%E7%9B%AE/image-20210313152002001.png" class="" title="这是一张图片">
+
+<p>一般会选择以下几项，需要vuex可选择vuex，CSS那项是预处理器，</p>
+<img src="/2021/03/13/vue%E5%88%9B%E5%BB%BA%E9%A1%B9%E7%9B%AE/image-20210313164346678.png" class="" title="这是一张图片">
+
+<p>安装node-sass</p>
+<img src="/2021/03/13/vue%E5%88%9B%E5%BB%BA%E9%A1%B9%E7%9B%AE/image-20210313164436483.png" class="" title="这是一张图片">
+
+<p>代码规范，一般选择这一项，实际开发中会使用prettier</p>
+<img src="/2021/03/13/vue%E5%88%9B%E5%BB%BA%E9%A1%B9%E7%9B%AE/image-20210313153101097.png" class="" title="这是一张图片">
+
+<p>选择保存就检测代码</p>
+<img src="/2021/03/13/vue%E5%88%9B%E5%BB%BA%E9%A1%B9%E7%9B%AE/image-20210313153223584.png" class="" title="这是一张图片">
+
+<p>选择独立存放配置文件</p>
+<img src="/2021/03/13/vue%E5%88%9B%E5%BB%BA%E9%A1%B9%E7%9B%AE/image-20210313153338902.png" class="" title="这是一张图片">
+
+<p>要记录本次的配置吗，记录的话要起一个名字</p>
+<img src="/2021/03/13/vue%E5%88%9B%E5%BB%BA%E9%A1%B9%E7%9B%AE/image-20210313153448473.png" class="" title="这是一张图片">
+
+<p>新建后的文件目录</p>
+<img src="/2021/03/13/vue%E5%88%9B%E5%BB%BA%E9%A1%B9%E7%9B%AE/image-20210313153645509.png" class="" title="这是一张图片">
+	
+
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/03/13/vue%E5%88%9B%E5%BB%BA%E9%A1%B9%E7%9B%AE/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-创建Vue3.0项目" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -520,23 +542,22 @@
 <p>到指定文件目录下，打开cmd控制台，输入</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vue create aoyafont-padnew  &#x2F;&#x2F;aoyafont-padnew为项目名</span><br></pre></td></tr></table></figure>
 <p>依次选择：</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/17420174-776b0531109c4e64.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1200/format/webp" alt="img"></p>
 <p>手动选择配置</p>
-<p><img src="/2021/03/13/%E5%88%9B%E5%BB%BAVue3/image-20210313152002001.png" alt="image-20210313152002001"></p>
+<p><img src="./vue%E5%88%9B%E5%BB%BA%E9%A1%B9%E7%9B%AE/image-20210313152002001.png" alt="image-20210313152002001"></p>
 <p>一般会选择以下几项，需要vuex可选择vuex，CSS那项是预处理器，</p>
-<p><img src="/2021/03/13/%E5%88%9B%E5%BB%BAVue3/image-20210313164346678.png" alt="image-20210313164346678"></p>
+<p><img src="./vue%E5%88%9B%E5%BB%BA%E9%A1%B9%E7%9B%AE/image-20210313164346678.png" alt="image-20210313164346678"></p>
 <p>安装node-sass</p>
-<p><img src="/2021/03/13/%E5%88%9B%E5%BB%BAVue3/image-20210313164436483.png" alt="image-20210313164436483"></p>
+<p><img src="./vue%E5%88%9B%E5%BB%BA%E9%A1%B9%E7%9B%AE/image-20210313164436483.png" alt="image-20210313164436483"></p>
 <p>代码规范，一般选择这一项，实际开发中会使用prettier</p>
-<p><img src="/2021/03/13/%E5%88%9B%E5%BB%BAVue3/image-20210313153101097.png" alt="image-20210313153101097"></p>
+<p><img src="./vue%E5%88%9B%E5%BB%BA%E9%A1%B9%E7%9B%AE/image-20210313153101097.png" alt="image-20210313153101097"></p>
 <p>选择保存就检测代码</p>
-<p><img src="/2021/03/13/%E5%88%9B%E5%BB%BAVue3/image-20210313153223584.png" alt="image-20210313153223584"></p>
+<p><img src="./vue%E5%88%9B%E5%BB%BA%E9%A1%B9%E7%9B%AE/image-20210313153223584.png" alt="image-20210313153223584"></p>
 <p>选择独立存放配置文件</p>
-<p><img src="/2021/03/13/%E5%88%9B%E5%BB%BAVue3/image-20210313153338902.png" alt="image-20210313153338902"></p>
+<p><img src="./vue%E5%88%9B%E5%BB%BA%E9%A1%B9%E7%9B%AE/image-20210313153338902.png" alt="image-20210313153338902"></p>
 <p>要记录本次的配置吗，记录的话要起一个名字</p>
-<p><img src="/2021/03/13/%E5%88%9B%E5%BB%BAVue3/image-20210313153448473.png" alt="image-20210313153448473"></p>
+<p><img src="./vue%E5%88%9B%E5%BB%BA%E9%A1%B9%E7%9B%AE/image-20210313153448473.png" alt="image-20210313153448473"></p>
 <p>新建后的文件目录</p>
-<p><img src="/2021/03/13/%E5%88%9B%E5%BB%BAVue3/image-20210313153645509.png" alt="image-20210313153645509"></p>
+<p><img src="./vue%E5%88%9B%E5%BB%BA%E9%A1%B9%E7%9B%AE/image-20210313153645509.png" alt="image-20210313153645509"></p>
 
 	
 
