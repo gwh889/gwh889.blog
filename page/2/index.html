@@ -248,19 +248,19 @@
 
 
   
-    <article id="post-页面大图自适应" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-自定义筛选" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2021/07/20/%E9%A1%B5%E9%9D%A2%E5%A4%A7%E5%9B%BE%E8%87%AA%E9%80%82%E5%BA%94/">监控大屏自适应</a>
+      <a class="article-title" href="/2021/07/20/%E8%87%AA%E5%AE%9A%E4%B9%89%E7%AD%9B%E9%80%89/">自定义筛选条件</a>
     </h1>
   
 
         
-        <a href="/2021/07/20/%E9%A1%B5%E9%9D%A2%E5%A4%A7%E5%9B%BE%E8%87%AA%E9%80%82%E5%BA%94/" class="archive-article-date">
+        <a href="/2021/07/20/%E8%87%AA%E5%AE%9A%E4%B9%89%E7%AD%9B%E9%80%89/" class="archive-article-date">
   	<time datetime="2021-07-19T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-07-20</time>
 </a>
         
@@ -270,10 +270,7 @@
   
  
 	
-		<p>监控大图的制作主要考虑自适应的问题，根据屏幕大小进行自动伸缩的一个功能。制作大图可以选择使用rem布局和百分比布局，如果选择使用rem布局，可以在前端配置一个postcss-px2rem ，px2rem-loader进行适配，可以scss直接以方法的形式定义变量，在css代码中则使用px2rem(20px)来定义宽高。</p>
-<p>做大图时会遇到图表的一个自适应，默认向echarts图表是不会自适应的，需要自己手动设置</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;div ref&#x3D;&quot;harvest&quot; id&#x3D;&quot;shape&quot; style&#x3D;&quot;width:100%;height:350px&quot;&gt;&lt;&#x2F;div&gt;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">export default &#123;</span><br><span class="line">    data()&#123;</span><br><span class="line">        return&#123;</span><br><span class="line">			resizeTimer: null,</span><br><span class="line">    	    harvest: null,</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    mounted() &#123;</span><br><span class="line">        let harvest &#x3D; this.$echarts.init(this.$refs.harvest);</span><br><span class="line">      	let _this &#x3D; this;</span><br><span class="line">     	 _this.harvest &#x3D; harvest;</span><br><span class="line">         harvest.setOption(this.makeOption());</span><br><span class="line">        </span><br><span class="line">         window.addEventListener(&quot;resize&quot;, function() &#123;</span><br><span class="line">            if (_this.resizeTimer) &#123;</span><br><span class="line">              clearTimeout(_this.resizeTimer);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            if (_this.harvest) &#123;</span><br><span class="line">              _this.resizeTimer &#x3D; setTimeout(function() &#123;</span><br><span class="line">                _this.harvest.resize();</span><br><span class="line">              &#125;, 100);</span><br><span class="line">            &#125;</span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+		<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//从多选框中挑选作为新的筛选条件</span></span><br><span class="line">shaixuanArray:[]<span class="comment">//筛选条件数组</span></span><br><span class="line">duoxuanArray:[]<span class="comment">//多选框数组</span></span><br><span class="line">isShowDiv:<span class="literal">false</span><span class="comment">//自定义筛选条件整个框是否展示</span></span><br><span class="line">isShowBox:<span class="literal">false</span><span class="comment">//自定义筛选多选框是否显示</span></span><br><span class="line">handleClickFilter()<span class="comment">//点击自定义筛选</span></span><br><span class="line">handleClickConfirm()<span class="comment">//点击确定</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="title">handleClickFilter</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"><span class="built_in">this</span>.isShowBox=!<span class="built_in">this</span>.isShowBox;</span><br><span class="line"><span class="keyword">if</span>(<span class="built_in">this</span>.isShowBox===<span class="literal">true</span>)<span class="comment">//从筛选条件跳转到多选框</span></span><br><span class="line">  &#123;</span><br><span class="line">  	<span class="built_in">this</span>.isShowDiv=<span class="literal">true</span>;</span><br><span class="line">	<span class="built_in">this</span>.duoxuanArray=<span class="built_in">this</span>.shaixuanArray;</span><br><span class="line">  &#125;<span class="keyword">else</span>&#123;<span class="comment">//从多选框跳到筛选条件</span></span><br><span class="line">  	<span class="built_in">this</span>.shaixuanArray.length===<span class="number">0</span>?<span class="built_in">this</span>.isShowDiv=<span class="literal">false</span>:<span class="string">&#x27;&#x27;</span>;</span><br><span class="line">  &#125;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="title">handleClickConfirm</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"><span class="built_in">this</span>.isShowBox=<span class="literal">false</span>;</span><br><span class="line"><span class="built_in">this</span>.shaixuanArray=<span class="built_in">this</span>.duoxuanArray;</span><br><span class="line"><span class="keyword">if</span>(<span class="built_in">this</span>.shaixuanArray.length===<span class="number">0</span>)&#123;<span class="built_in">this</span>.isShowDiv=<span class="literal">false</span>&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 	
 
@@ -287,7 +284,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/大屏//" class="article-tag-list-link color3">大屏</a>
+        			<a href="/categories/demo//" class="article-tag-list-link color5">demo</a>
         		</li>
       		
 		</ul>
@@ -296,7 +293,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2021/07/20/%E9%A1%B5%E9%9D%A2%E5%A4%A7%E5%9B%BE%E8%87%AA%E9%80%82%E5%BA%94/">展开全文 >></a>
+          <a class="article-more-a" href="/2021/07/20/%E8%87%AA%E5%AE%9A%E4%B9%89%E7%AD%9B%E9%80%89/">展开全文 >></a>
         </p>
       
 
@@ -562,17 +559,17 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;页面刷新，参数丢失，路由名称，传一个或者多个</span><br><span class="line">this.$router.push(&#123;</span><br><span class="line">  name: &#39;Detail&#39;,</span><br><span class="line">  params: &#123;</span><br><span class="line">    name: &#39;张三&#39;，</span><br><span class="line">    id: 1,</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 <h1 id="mixins"><a href="#mixins" class="headerlink" title="mixins"></a>mixins</h1><p>混入 (mixin) 提供了一种非常灵活的方式，来分发 Vue 组件中的可复用功能。混入对象的钩子将在组件自身钩子<strong>之前</strong>调用。混入对象和组件对象两个对象键名冲突时，取组件对象的键值对。</p>
 <h2 id="使用场景："><a href="#使用场景：" class="headerlink" title="使用场景："></a>使用场景：</h2><p>当我们存在多个组件中的数据或者功能很相近时，我们就可以利用mixins将公共部分提取出来，通过 mixins封装的函数，组件调用他们是不会改变函数作用域外部的。避免每个需要相同功能的组件声明重复的data、methods、钩子函数</p>
-<p>例如：假设我们需要在每个组件上添加name和time。在created、destroyed时,打出提示，并给出存活时间。</p>
-<p>一共有五个组件，请问怎么做？<br> 做法1：给每个组件添加data和created, destroyed钩子，重复5次<br> 做法2：使用mixin减少重复。</p>
+<p>例如： 假设我们需要在每个组件上添加name和time。在created、destroyed时,打出提示，并给出存活时间。</p>
+<p>一共有五个组件，请问怎么做？<br> 做法1： 给每个组件添加data和created, destroyed钩子，重复5次<br> 做法2： 使用mixin减少重复。</p>
 <h2 id="用法："><a href="#用法：" class="headerlink" title="用法："></a>用法：</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 在某个路径下新建 myMixins.js，因为mixin是一个对象，因为要以对象的形式来定义myMixins，对象中我们可以和vue组件一样来定义我们的data、components、methods 、created、computed等属性，并通过export导出该对象</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  data () &#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;&#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  methods: &#123;&#125;,</span><br><span class="line">  <span class="function"><span class="title">created</span>(<span class="params"></span>)</span>&#123;&#125;,</span><br><span class="line">  <span class="function"><span class="title">mounted</span>(<span class="params"></span>)</span>&#123;&#125;,</span><br><span class="line">  <span class="function"><span class="title">computed</span>(<span class="params"></span>)</span>&#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// a.vue中</span></span><br><span class="line"><span class="keyword">import</span> autoResize <span class="keyword">from</span> <span class="string">&#x27;./myMixins.js&#x27;</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  mixins: [autoResize]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="特点："><a href="#特点：" class="headerlink" title="特点："></a>特点：</h2><p>方法和参数在各组件中不共享，虽然组件调用了mixins并将其属性合并到自身组件中来了，但是其属性只会被当前组件所识别并不会被共享。</p>
-<h2 id="引入多个mixin："><a href="#引入多个mixin：" class="headerlink" title="引入多个mixin："></a>引入多个mixin：</h2><p>同时引入多个 mixins: [mixinsTest2,mixinsTest]</p>
+<h2 id="引入多个mixin："><a href="#引入多个mixin：" class="headerlink" title="引入多个mixin："></a>引入多个mixin：</h2><p>同时引入多个 mixins:  [mixinsTest2,mixinsTest]</p>
 <p>在使用局部注册的时候，可同时引入多个混入对象，执行顺序和引入顺序一致。</p>
-<p><code>结论：</code> 引入多个以后，,我们先引入的先被使用，先引用，先使用！</p>
-<h2 id="与vuex的区别"><a href="#与vuex的区别" class="headerlink" title="与vuex的区别"></a>与vuex的区别</h2><p>vuex：用来做状态管理的，里面定义的变量在每个组件中均可以使用和修改，在任一组件中修改此变量的值之后，其他组件中此变量的值也会随之修改。</p>
-<p>Mixins：可以定义共用的变量，在每个组件中使用，引入组件中之后，各个变量是相互独立的，值的修改在组件中不会相互影响。</p>
-<h2 id="与公共组件的区别"><a href="#与公共组件的区别" class="headerlink" title="与公共组件的区别"></a>与公共组件的区别</h2><p>组件：在父组件中引入组件，相当于在父组件中给出一片独立的空间供子组件使用，然后根据props来传值，但本质上两者是相对独立的。</p>
-<p>Mixins：则是在引入Mixins之后，Mixins与组件中的属性和方法进行合并，相当于扩展了父组件的对象与方法，可以理解为形成了一个新的组件。</p>
+<p><code>结论：</code>  引入多个以后，,我们先引入的先被使用，先引用，先使用！</p>
+<h2 id="与vuex的区别"><a href="#与vuex的区别" class="headerlink" title="与vuex的区别"></a>与vuex的区别</h2><p>vuex： 用来做状态管理的，里面定义的变量在每个组件中均可以使用和修改，在任一组件中修改此变量的值之后，其他组件中此变量的值也会随之修改。</p>
+<p>Mixins： 可以定义共用的变量，在每个组件中使用，引入组件中之后，各个变量是相互独立的，值的修改在组件中不会相互影响。</p>
+<h2 id="与公共组件的区别"><a href="#与公共组件的区别" class="headerlink" title="与公共组件的区别"></a>与公共组件的区别</h2><p>组件： 在父组件中引入组件，相当于在父组件中给出一片独立的空间供子组件使用，然后根据props来传值，但本质上两者是相对独立的。</p>
+<p>Mixins： 则是在引入Mixins之后，Mixins与组件中的属性和方法进行合并，相当于扩展了父组件的对象与方法，可以理解为形成了一个新的组件。</p>
 
 	
 
