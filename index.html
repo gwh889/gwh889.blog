@@ -1020,83 +1020,6 @@
 
 
   
-    <article id="post-将html元素转换为图片并可以下载，具体示例如下" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/07/20/%E5%B0%86html%E5%85%83%E7%B4%A0%E8%BD%AC%E6%8D%A2%E4%B8%BA%E5%9B%BE%E7%89%87%E5%B9%B6%E5%8F%AF%E4%BB%A5%E4%B8%8B%E8%BD%BD%EF%BC%8C%E5%85%B7%E4%BD%93%E7%A4%BA%E4%BE%8B%E5%A6%82%E4%B8%8B/">将html元素转换为图片并可以下载</a>
-    </h1>
-  
-
-        
-        <a href="/2021/07/20/%E5%B0%86html%E5%85%83%E7%B4%A0%E8%BD%AC%E6%8D%A2%E4%B8%BA%E5%9B%BE%E7%89%87%E5%B9%B6%E5%8F%AF%E4%BB%A5%E4%B8%8B%E8%BD%BD%EF%BC%8C%E5%85%B7%E4%BD%93%E7%A4%BA%E4%BE%8B%E5%A6%82%E4%B8%8B/" class="archive-article-date">
-  	<time datetime="2021-07-19T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-07-20</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-  
- 
-	
-		<p>将html元素转换为图片并可以下载，具体示例如下: </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class&#x3D;&quot;previewPrint&quot; id&#x3D;&quot;previewPrint&quot; ref&#x3D;&quot;imageWrapper&quot;&gt;</span><br><span class="line">        &lt;div v-for&#x3D;&quot;item in barcodeList&quot; :key&#x3D;&quot;item.index&quot; class&#x3D;&quot;printBar&quot;&gt;</span><br><span class="line">          &lt;div&gt;料箱编码：AB0300001&lt;&#x2F;div&gt;</span><br><span class="line">          &lt;div class&#x3D;&quot;printDescribe&quot;&gt;</span><br><span class="line">            &lt;div&gt;型号：AB-001&lt;&#x2F;div&gt;</span><br><span class="line">            &lt;div&gt;重量(kg)：10.15&lt;&#x2F;div&gt;</span><br><span class="line">          &lt;&#x2F;div&gt;</span><br><span class="line">          &lt;barcode :value&#x3D;&quot;item.value&quot; height&#x3D;&quot;70&quot;&gt;</span><br><span class="line">            &#123;&#123; item.value &#125;&#125;</span><br><span class="line">          &lt;&#x2F;barcode&gt;</span><br><span class="line">        &lt;&#x2F;div&gt;</span><br><span class="line">&lt;&#x2F;div&gt;</span><br><span class="line">&#x2F;&#x2F;转换工具</span><br><span class="line">import html2canvas from &#39;html2canvas&#39;</span><br></pre></td></tr></table></figure>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment">//点击下载调用的函数</span></span><br><span class="line"><span class="function"><span class="title">download</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">      html2canvas(<span class="built_in">this</span>.$refs.imageWrapper, &#123;</span><br><span class="line">        backgroundColor: <span class="string">&#x27;#fff&#x27;</span>,</span><br><span class="line">        scal: <span class="number">2</span></span><br><span class="line">      &#125;).then(<span class="function">(<span class="params">canvas</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">var</span> context = canvas.getContext(<span class="string">&#x27;2d&#x27;</span>);</span><br><span class="line">        <span class="comment">// 关闭抗锯齿</span></span><br><span class="line">        context.mozImageSmoothingEnabled = <span class="literal">false</span>;</span><br><span class="line">        context.webkitImageSmoothingEnabled = <span class="literal">false</span>;</span><br><span class="line">        context.msImageSmoothingEnabled = <span class="literal">false</span>;</span><br><span class="line">        context.imageSmoothingEnabled = <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">let</span> dataURL = canvas.toDataURL(<span class="string">&#x27;image/png&#x27;</span>);</span><br><span class="line">        <span class="built_in">this</span>.createImgUrl = dataURL;</span><br><span class="line">        <span class="built_in">this</span>.fileDownload(dataURL);</span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;,</span><br><span class="line">     fileDownload (downloadUrl) &#123;</span><br><span class="line">      <span class="keyword">let</span> aLink = <span class="built_in">document</span>.createElement(<span class="string">&#x27;a&#x27;</span>);</span><br><span class="line">      aLink.style.display = <span class="string">&#x27;none&#x27;</span>;</span><br><span class="line">      aLink.href = downloadUrl;</span><br><span class="line">      aLink.download = <span class="string">&#x27;料箱条形码.png&#x27;</span>;</span><br><span class="line">      <span class="comment">// 触发点击-然后移除</span></span><br><span class="line">      <span class="built_in">document</span>.body.appendChild(aLink);</span><br><span class="line">      aLink.click();</span><br><span class="line">      <span class="built_in">document</span>.body.removeChild(aLink);</span><br><span class="line">    &#125;,</span><br></pre></td></tr></table></figure>
-
-	
-
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/demo//" class="article-tag-list-link color5">demo</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/07/20/%E5%B0%86html%E5%85%83%E7%B4%A0%E8%BD%AC%E6%8D%A2%E4%B8%BA%E5%9B%BE%E7%89%87%E5%B9%B6%E5%8F%AF%E4%BB%A5%E4%B8%8B%E8%BD%BD%EF%BC%8C%E5%85%B7%E4%BD%93%E7%A4%BA%E4%BE%8B%E5%A6%82%E4%B8%8B/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
     <article id="post-小程序开发" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1239,19 +1162,19 @@
 
 
   
-    <article id="post-点击页面内跳转" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-将html元素转换为图片并可以下载，具体示例如下" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2021/07/20/%E7%82%B9%E5%87%BB%E9%A1%B5%E9%9D%A2%E5%86%85%E8%B7%B3%E8%BD%AC/">页面滚动（页面内点击跳转到相应位置）</a>
+      <a class="article-title" href="/2021/07/20/%E5%B0%86html%E5%85%83%E7%B4%A0%E8%BD%AC%E6%8D%A2%E4%B8%BA%E5%9B%BE%E7%89%87%E5%B9%B6%E5%8F%AF%E4%BB%A5%E4%B8%8B%E8%BD%BD%EF%BC%8C%E5%85%B7%E4%BD%93%E7%A4%BA%E4%BE%8B%E5%A6%82%E4%B8%8B/">将html元素转换为图片并可以下载</a>
     </h1>
   
 
         
-        <a href="/2021/07/20/%E7%82%B9%E5%87%BB%E9%A1%B5%E9%9D%A2%E5%86%85%E8%B7%B3%E8%BD%AC/" class="archive-article-date">
+        <a href="/2021/07/20/%E5%B0%86html%E5%85%83%E7%B4%A0%E8%BD%AC%E6%8D%A2%E4%B8%BA%E5%9B%BE%E7%89%87%E5%B9%B6%E5%8F%AF%E4%BB%A5%E4%B8%8B%E8%BD%BD%EF%BC%8C%E5%85%B7%E4%BD%93%E7%A4%BA%E4%BE%8B%E5%A6%82%E4%B8%8B/" class="archive-article-date">
   	<time datetime="2021-07-19T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-07-20</time>
 </a>
         
@@ -1261,15 +1184,9 @@
   
  
 	
-		<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class&#x3D;&quot;home-left-slider-main&quot; id&#x3D;&quot;home-left-slider-main&quot;&gt;</span><br><span class="line">   &lt;ul&gt;</span><br><span class="line">     &lt;li :class&#x3D;&quot;index &#x3D;&#x3D;&#x3D; 0 ? &#39;isActive&#39; : &#39;&#39;&quot; @click&#x3D;&quot;isActive(0)&quot;&gt;</span><br><span class="line">       &lt;i class&#x3D;&quot;iconfont icon-zhengce&quot;&gt;&lt;&#x2F;i&gt;</span><br><span class="line">       &lt;span&gt;岱政策&lt;&#x2F;span&gt;</span><br><span class="line">     &lt;&#x2F;li&gt;</span><br><span class="line">     &lt;li :class&#x3D;&quot;index &#x3D;&#x3D;&#x3D; 1 ? &#39;isActive&#39; : &#39;&#39;&quot; @click&#x3D;&quot;isActive(1)&quot;&gt;</span><br><span class="line">       &lt;i class&#x3D;&quot;iconfont icon-dialogue&quot;&gt;&lt;&#x2F;i&gt;</span><br><span class="line">       &lt;span&gt;岱企问&lt;&#x2F;span&gt;</span><br><span class="line">     &lt;&#x2F;li&gt;</span><br><span class="line">     &lt;li :class&#x3D;&quot;index &#x3D;&#x3D;&#x3D; 2 ? &#39;isActive&#39; : &#39;&#39;&quot; @click&#x3D;&quot;isActive(2)&quot;&gt;</span><br><span class="line">       &lt;i class&#x3D;&quot;iconfont icon-jinrong-copy&quot;&gt;&lt;&#x2F;i&gt;</span><br><span class="line">       &lt;span&gt;岱企办&lt;&#x2F;span&gt;</span><br><span class="line">     &lt;&#x2F;li&gt;</span><br><span class="line">     &lt;li :class&#x3D;&quot;index &#x3D;&#x3D;&#x3D; 3 ? &#39;isActive&#39; : &#39;&#39;&quot; @click&#x3D;&quot;isActive(3)&quot;&gt;</span><br><span class="line">       &lt;i class&#x3D;&quot;iconfont icon-baoxian&quot;&gt;&lt;&#x2F;i&gt;</span><br><span class="line">       &lt;span&gt;岱保险&lt;&#x2F;span&gt;</span><br><span class="line">     &lt;&#x2F;li&gt;</span><br><span class="line">     &lt;li :class&#x3D;&quot;index &#x3D;&#x3D;&#x3D; 4 ? &#39;isActive&#39; : &#39;&#39;&quot; @click&#x3D;&quot;isActive(4)&quot;&gt;</span><br><span class="line">       &lt;i class&#x3D;&quot;iconfont icon-zhenduan&quot;&gt;&lt;&#x2F;i&gt;</span><br><span class="line">       &lt;span&gt;岱诊断&lt;&#x2F;span&gt;</span><br><span class="line">     &lt;&#x2F;li&gt;</span><br><span class="line">     &lt;li :class&#x3D;&quot;index &#x3D;&#x3D;&#x3D; 5 ? &#39;isActive&#39; : &#39;&#39;&quot; @click&#x3D;&quot;isActive(5)&quot;&gt;</span><br><span class="line">       &lt;i class&#x3D;&quot;iconfont icon-peixun&quot;&gt;&lt;&#x2F;i&gt;</span><br><span class="line">       &lt;span&gt;岱培训&lt;&#x2F;span&gt;</span><br><span class="line">     &lt;&#x2F;li&gt;</span><br><span class="line">   &lt;&#x2F;ul&gt;</span><br><span class="line"> &lt;&#x2F;div&gt;</span><br></pre></td></tr></table></figure>
-<p>1.点击某个div跳转到相应的位置</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">isActive</span>(<span class="params">index</span>)</span> &#123;</span><br><span class="line">  <span class="built_in">this</span>.index = index</span><br><span class="line">  <span class="built_in">this</span>.goDiv(index)</span><br><span class="line">&#125;,</span><br><span class="line"><span class="function"><span class="title">goDiv</span>(<span class="params">div</span>)</span> &#123;</span><br><span class="line">  <span class="keyword">var</span> a = $(<span class="string">&#x27;#&#x27;</span> + div).offset().top - <span class="number">30</span></span><br><span class="line">  $(<span class="string">&#x27;html,body&#x27;</span>).animate(&#123; <span class="attr">scrollTop</span>: a &#125;, <span class="string">&#x27;slow&#x27;</span>)</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
-<p>2.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mounted() &#123;</span><br><span class="line">    &#x2F;&#x2F;给window添加一个滚动滚动监听事件</span><br><span class="line">    window.addEventListener(&#39;scroll&#39;, this.handleScroll)</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
-<p>3.</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">handleScroll</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">      <span class="comment">//改变元素#searchBar的top值</span></span><br><span class="line">      <span class="keyword">var</span> scrollTop = <span class="built_in">window</span>.pageYOffset || <span class="built_in">document</span>.documentElement.scrollTop || <span class="built_in">document</span>.body.scrollTop</span><br><span class="line">      <span class="keyword">var</span> offsetTop = <span class="built_in">document</span>.querySelector(<span class="string">&#x27;#home-left-slider-main&#x27;</span>).offsetTop</span><br><span class="line">      <span class="keyword">if</span> (scrollTop &lt;= <span class="number">200</span>) &#123;</span><br><span class="line">        offsetTop = <span class="number">500</span> - <span class="built_in">Number</span>(scrollTop);</span><br><span class="line">        <span class="built_in">document</span>.querySelector(<span class="string">&#x27;#home-left-slider-main&#x27;</span>).style.top =</span><br><span class="line">          offsetTop + <span class="string">&#x27;px&#x27;</span></span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">if</span> (scrollTop &gt; <span class="number">200</span>) &#123;</span><br><span class="line">        <span class="built_in">document</span>.querySelector(<span class="string">&#x27;#home-left-slider-main&#x27;</span>).style.top = <span class="string">&#x27;200px&#x27;</span></span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">if</span> (scrollTop &gt; <span class="number">300</span>) &#123;</span><br><span class="line">        <span class="built_in">document</span>.querySelector(<span class="string">&#x27;#home-left-slider-main&#x27;</span>).style.top = <span class="string">&#x27;10px&#x27;</span></span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">if</span> (scrollTop &gt; <span class="number">500</span>) &#123;</span><br><span class="line">        <span class="built_in">document</span>.querySelector(<span class="string">&#x27;#home-left-slider-main&#x27;</span>).style.top = <span class="string">&#x27;0px&#x27;</span></span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">if</span> (scrollTop &gt; <span class="number">900</span>) &#123;</span><br><span class="line">        <span class="built_in">document</span>.querySelector(<span class="string">&#x27;#home-left-slider-main&#x27;</span>).style.top = <span class="string">&#x27;-200px&#x27;</span></span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">if</span> (scrollTop &gt; <span class="number">1500</span>) &#123;</span><br><span class="line">        <span class="built_in">document</span>.querySelector(<span class="string">&#x27;#home-left-slider-main&#x27;</span>).style.top = <span class="string">&#x27;-350px&#x27;</span></span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">if</span> (scrollTop &gt; <span class="number">1800</span>) &#123;</span><br><span class="line">        <span class="built_in">document</span>.querySelector(<span class="string">&#x27;#home-left-slider-main&#x27;</span>).style.top = <span class="string">&#x27;-550px&#x27;</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;,</span><br></pre></td></tr></table></figure>
-<p>4.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">destroyed() &#123;</span><br><span class="line">   &#x2F;&#x2F;离开该页面需要移除这个监听的事件</span><br><span class="line">   window.removeEventListener(&#39;scroll&#39;, this.handleScroll)</span><br><span class="line"> &#125;,</span><br></pre></td></tr></table></figure>
+		<p>将html元素转换为图片并可以下载，具体示例如下: </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class&#x3D;&quot;previewPrint&quot; id&#x3D;&quot;previewPrint&quot; ref&#x3D;&quot;imageWrapper&quot;&gt;</span><br><span class="line">        &lt;div v-for&#x3D;&quot;item in barcodeList&quot; :key&#x3D;&quot;item.index&quot; class&#x3D;&quot;printBar&quot;&gt;</span><br><span class="line">          &lt;div&gt;料箱编码：AB0300001&lt;&#x2F;div&gt;</span><br><span class="line">          &lt;div class&#x3D;&quot;printDescribe&quot;&gt;</span><br><span class="line">            &lt;div&gt;型号：AB-001&lt;&#x2F;div&gt;</span><br><span class="line">            &lt;div&gt;重量(kg)：10.15&lt;&#x2F;div&gt;</span><br><span class="line">          &lt;&#x2F;div&gt;</span><br><span class="line">          &lt;barcode :value&#x3D;&quot;item.value&quot; height&#x3D;&quot;70&quot;&gt;</span><br><span class="line">            &#123;&#123; item.value &#125;&#125;</span><br><span class="line">          &lt;&#x2F;barcode&gt;</span><br><span class="line">        &lt;&#x2F;div&gt;</span><br><span class="line">&lt;&#x2F;div&gt;</span><br><span class="line">&#x2F;&#x2F;转换工具</span><br><span class="line">import html2canvas from &#39;html2canvas&#39;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment">//点击下载调用的函数</span></span><br><span class="line"><span class="function"><span class="title">download</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">      html2canvas(<span class="built_in">this</span>.$refs.imageWrapper, &#123;</span><br><span class="line">        backgroundColor: <span class="string">&#x27;#fff&#x27;</span>,</span><br><span class="line">        scal: <span class="number">2</span></span><br><span class="line">      &#125;).then(<span class="function">(<span class="params">canvas</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">var</span> context = canvas.getContext(<span class="string">&#x27;2d&#x27;</span>);</span><br><span class="line">        <span class="comment">// 关闭抗锯齿</span></span><br><span class="line">        context.mozImageSmoothingEnabled = <span class="literal">false</span>;</span><br><span class="line">        context.webkitImageSmoothingEnabled = <span class="literal">false</span>;</span><br><span class="line">        context.msImageSmoothingEnabled = <span class="literal">false</span>;</span><br><span class="line">        context.imageSmoothingEnabled = <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">let</span> dataURL = canvas.toDataURL(<span class="string">&#x27;image/png&#x27;</span>);</span><br><span class="line">        <span class="built_in">this</span>.createImgUrl = dataURL;</span><br><span class="line">        <span class="built_in">this</span>.fileDownload(dataURL);</span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;,</span><br><span class="line">     fileDownload (downloadUrl) &#123;</span><br><span class="line">      <span class="keyword">let</span> aLink = <span class="built_in">document</span>.createElement(<span class="string">&#x27;a&#x27;</span>);</span><br><span class="line">      aLink.style.display = <span class="string">&#x27;none&#x27;</span>;</span><br><span class="line">      aLink.href = downloadUrl;</span><br><span class="line">      aLink.download = <span class="string">&#x27;料箱条形码.png&#x27;</span>;</span><br><span class="line">      <span class="comment">// 触发点击-然后移除</span></span><br><span class="line">      <span class="built_in">document</span>.body.appendChild(aLink);</span><br><span class="line">      aLink.click();</span><br><span class="line">      <span class="built_in">document</span>.body.removeChild(aLink);</span><br><span class="line">    &#125;,</span><br></pre></td></tr></table></figure>
 
 	
 
@@ -1292,7 +1209,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2021/07/20/%E7%82%B9%E5%87%BB%E9%A1%B5%E9%9D%A2%E5%86%85%E8%B7%B3%E8%BD%AC/">展开全文 >></a>
+          <a class="article-more-a" href="/2021/07/20/%E5%B0%86html%E5%85%83%E7%B4%A0%E8%BD%AC%E6%8D%A2%E4%B8%BA%E5%9B%BE%E7%89%87%E5%B9%B6%E5%8F%AF%E4%BB%A5%E4%B8%8B%E8%BD%BD%EF%BC%8C%E5%85%B7%E4%BD%93%E7%A4%BA%E4%BE%8B%E5%A6%82%E4%B8%8B/">展开全文 >></a>
         </p>
       
 
@@ -1374,6 +1291,89 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2021/07/20/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-点击页面内跳转" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/07/20/%E7%82%B9%E5%87%BB%E9%A1%B5%E9%9D%A2%E5%86%85%E8%B7%B3%E8%BD%AC/">页面滚动（页面内点击跳转到相应位置）</a>
+    </h1>
+  
+
+        
+        <a href="/2021/07/20/%E7%82%B9%E5%87%BB%E9%A1%B5%E9%9D%A2%E5%86%85%E8%B7%B3%E8%BD%AC/" class="archive-article-date">
+  	<time datetime="2021-07-19T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-07-20</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+  
+ 
+	
+		<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class&#x3D;&quot;home-left-slider-main&quot; id&#x3D;&quot;home-left-slider-main&quot;&gt;</span><br><span class="line">   &lt;ul&gt;</span><br><span class="line">     &lt;li :class&#x3D;&quot;index &#x3D;&#x3D;&#x3D; 0 ? &#39;isActive&#39; : &#39;&#39;&quot; @click&#x3D;&quot;isActive(0)&quot;&gt;</span><br><span class="line">       &lt;i class&#x3D;&quot;iconfont icon-zhengce&quot;&gt;&lt;&#x2F;i&gt;</span><br><span class="line">       &lt;span&gt;岱政策&lt;&#x2F;span&gt;</span><br><span class="line">     &lt;&#x2F;li&gt;</span><br><span class="line">     &lt;li :class&#x3D;&quot;index &#x3D;&#x3D;&#x3D; 1 ? &#39;isActive&#39; : &#39;&#39;&quot; @click&#x3D;&quot;isActive(1)&quot;&gt;</span><br><span class="line">       &lt;i class&#x3D;&quot;iconfont icon-dialogue&quot;&gt;&lt;&#x2F;i&gt;</span><br><span class="line">       &lt;span&gt;岱企问&lt;&#x2F;span&gt;</span><br><span class="line">     &lt;&#x2F;li&gt;</span><br><span class="line">     &lt;li :class&#x3D;&quot;index &#x3D;&#x3D;&#x3D; 2 ? &#39;isActive&#39; : &#39;&#39;&quot; @click&#x3D;&quot;isActive(2)&quot;&gt;</span><br><span class="line">       &lt;i class&#x3D;&quot;iconfont icon-jinrong-copy&quot;&gt;&lt;&#x2F;i&gt;</span><br><span class="line">       &lt;span&gt;岱企办&lt;&#x2F;span&gt;</span><br><span class="line">     &lt;&#x2F;li&gt;</span><br><span class="line">     &lt;li :class&#x3D;&quot;index &#x3D;&#x3D;&#x3D; 3 ? &#39;isActive&#39; : &#39;&#39;&quot; @click&#x3D;&quot;isActive(3)&quot;&gt;</span><br><span class="line">       &lt;i class&#x3D;&quot;iconfont icon-baoxian&quot;&gt;&lt;&#x2F;i&gt;</span><br><span class="line">       &lt;span&gt;岱保险&lt;&#x2F;span&gt;</span><br><span class="line">     &lt;&#x2F;li&gt;</span><br><span class="line">     &lt;li :class&#x3D;&quot;index &#x3D;&#x3D;&#x3D; 4 ? &#39;isActive&#39; : &#39;&#39;&quot; @click&#x3D;&quot;isActive(4)&quot;&gt;</span><br><span class="line">       &lt;i class&#x3D;&quot;iconfont icon-zhenduan&quot;&gt;&lt;&#x2F;i&gt;</span><br><span class="line">       &lt;span&gt;岱诊断&lt;&#x2F;span&gt;</span><br><span class="line">     &lt;&#x2F;li&gt;</span><br><span class="line">     &lt;li :class&#x3D;&quot;index &#x3D;&#x3D;&#x3D; 5 ? &#39;isActive&#39; : &#39;&#39;&quot; @click&#x3D;&quot;isActive(5)&quot;&gt;</span><br><span class="line">       &lt;i class&#x3D;&quot;iconfont icon-peixun&quot;&gt;&lt;&#x2F;i&gt;</span><br><span class="line">       &lt;span&gt;岱培训&lt;&#x2F;span&gt;</span><br><span class="line">     &lt;&#x2F;li&gt;</span><br><span class="line">   &lt;&#x2F;ul&gt;</span><br><span class="line"> &lt;&#x2F;div&gt;</span><br></pre></td></tr></table></figure>
+<p>1.点击某个div跳转到相应的位置</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">isActive</span>(<span class="params">index</span>)</span> &#123;</span><br><span class="line">  <span class="built_in">this</span>.index = index</span><br><span class="line">  <span class="built_in">this</span>.goDiv(index)</span><br><span class="line">&#125;,</span><br><span class="line"><span class="function"><span class="title">goDiv</span>(<span class="params">div</span>)</span> &#123;</span><br><span class="line">  <span class="keyword">var</span> a = $(<span class="string">&#x27;#&#x27;</span> + div).offset().top - <span class="number">30</span></span><br><span class="line">  $(<span class="string">&#x27;html,body&#x27;</span>).animate(&#123; <span class="attr">scrollTop</span>: a &#125;, <span class="string">&#x27;slow&#x27;</span>)</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+<p>2.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mounted() &#123;</span><br><span class="line">    &#x2F;&#x2F;给window添加一个滚动滚动监听事件</span><br><span class="line">    window.addEventListener(&#39;scroll&#39;, this.handleScroll)</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+<p>3.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">handleScroll</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">      <span class="comment">//改变元素#searchBar的top值</span></span><br><span class="line">      <span class="keyword">var</span> scrollTop = <span class="built_in">window</span>.pageYOffset || <span class="built_in">document</span>.documentElement.scrollTop || <span class="built_in">document</span>.body.scrollTop</span><br><span class="line">      <span class="keyword">var</span> offsetTop = <span class="built_in">document</span>.querySelector(<span class="string">&#x27;#home-left-slider-main&#x27;</span>).offsetTop</span><br><span class="line">      <span class="keyword">if</span> (scrollTop &lt;= <span class="number">200</span>) &#123;</span><br><span class="line">        offsetTop = <span class="number">500</span> - <span class="built_in">Number</span>(scrollTop);</span><br><span class="line">        <span class="built_in">document</span>.querySelector(<span class="string">&#x27;#home-left-slider-main&#x27;</span>).style.top =</span><br><span class="line">          offsetTop + <span class="string">&#x27;px&#x27;</span></span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">if</span> (scrollTop &gt; <span class="number">200</span>) &#123;</span><br><span class="line">        <span class="built_in">document</span>.querySelector(<span class="string">&#x27;#home-left-slider-main&#x27;</span>).style.top = <span class="string">&#x27;200px&#x27;</span></span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">if</span> (scrollTop &gt; <span class="number">300</span>) &#123;</span><br><span class="line">        <span class="built_in">document</span>.querySelector(<span class="string">&#x27;#home-left-slider-main&#x27;</span>).style.top = <span class="string">&#x27;10px&#x27;</span></span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">if</span> (scrollTop &gt; <span class="number">500</span>) &#123;</span><br><span class="line">        <span class="built_in">document</span>.querySelector(<span class="string">&#x27;#home-left-slider-main&#x27;</span>).style.top = <span class="string">&#x27;0px&#x27;</span></span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">if</span> (scrollTop &gt; <span class="number">900</span>) &#123;</span><br><span class="line">        <span class="built_in">document</span>.querySelector(<span class="string">&#x27;#home-left-slider-main&#x27;</span>).style.top = <span class="string">&#x27;-200px&#x27;</span></span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">if</span> (scrollTop &gt; <span class="number">1500</span>) &#123;</span><br><span class="line">        <span class="built_in">document</span>.querySelector(<span class="string">&#x27;#home-left-slider-main&#x27;</span>).style.top = <span class="string">&#x27;-350px&#x27;</span></span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">if</span> (scrollTop &gt; <span class="number">1800</span>) &#123;</span><br><span class="line">        <span class="built_in">document</span>.querySelector(<span class="string">&#x27;#home-left-slider-main&#x27;</span>).style.top = <span class="string">&#x27;-550px&#x27;</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;,</span><br></pre></td></tr></table></figure>
+<p>4.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">destroyed() &#123;</span><br><span class="line">   &#x2F;&#x2F;离开该页面需要移除这个监听的事件</span><br><span class="line">   window.removeEventListener(&#39;scroll&#39;, this.handleScroll)</span><br><span class="line"> &#125;,</span><br></pre></td></tr></table></figure>
+
+	
+
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/demo//" class="article-tag-list-link color5">demo</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/07/20/%E7%82%B9%E5%87%BB%E9%A1%B5%E9%9D%A2%E5%86%85%E8%B7%B3%E8%BD%AC/">展开全文 >></a>
         </p>
       
 
