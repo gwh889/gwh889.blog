@@ -17,7 +17,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://example.com/2022/02/11/js/image-20221102170434564.png">
 <meta property="article:published_time" content="2022-02-10T16:00:00.000Z">
-<meta property="article:modified_time" content="2023-02-13T06:44:01.544Z">
+<meta property="article:modified_time" content="2023-02-13T06:46:53.000Z">
 <meta property="article:author" content="GWH">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://example.com/2022/02/11/js/image-20221102170434564.png">
@@ -464,9 +464,9 @@
 <h2 id="js阻塞页面渲染"><a href="#js阻塞页面渲染" class="headerlink" title="js阻塞页面渲染"></a>js阻塞页面渲染</h2><p>虽然js都会阻塞DOM解析，但是浏览器对于内联script和外联script的渲染过程还是有一点点不同。内联js会阻塞DOM解析和渲染，直到js执行完成后，页面才会被渲染出来。外联js也会阻塞DOM解析和渲染，但是如果在外联script标签之前已经有DOM元素生成，则浏览器会优先渲染一次。我想这是因为浏览器不知道脚本的内容，因而碰到脚本时，只好先渲染页面，确保脚本能获取到最新的<code>DOM</code>元素信息，尽管脚本可能不需要这些信息。</p>
 <p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/FHC1994/p/13162696.html">https://www.cnblogs.com/FHC1994/p/13162696.html</a></p>
 <h3 id="不阻塞浏览器渲染文档的方法"><a href="#不阻塞浏览器渲染文档的方法" class="headerlink" title="不阻塞浏览器渲染文档的方法"></a>不阻塞浏览器渲染文档的方法</h3><p>script标签有两个属性，一个是defer（翻译为延迟），二是asyn（翻译为异步，没错，和我们的常见的ajax和axios的异步是一个意思），这两个属性都可以改变脚本的加载执行方式</p>
-<p>延迟：延迟是指当浏览器解析到script脚本时，会继续向下载入和解析文档，等到文档载入解析完成且可以操作文档时，才开始执行脚本。仅仅IE浏览器支持defer属性，而async属性则被ie10+和其他现代浏览器支持。</p>
-<p>异步：异步是指当浏览器解析到script脚本时，会立刻下载和执行脚本，但同时浏览器解析器也会继续向下解析渲染文档，不会造成阻塞的现象。这使得脚本可以尽快的被载入执行，这很想我们前端调用post异步接口，并不影响文档的正常解析渲染。HTML5中的新属性，仅适用于外部脚本</p>
-<p><strong>注意</strong>：使用defer属性的脚本，当有多个的时候，这些脚本会按照他们在文档中排列的顺序载入执行。而使用asyn属性的脚本，当有多个的时候，会顺序开始触发载入，但谁先完成载入就谁先执行，这就是说，他们的执行顺序可能是无序不确定的。在有的时候知道这点很重要，因为这可能涉及一些有强制顺序的逻辑处理。</p>
+<p>延迟： 延迟是指当浏览器解析到script脚本时，会继续向下载入和解析文档，等到文档载入解析完成且可以操作文档时，才开始执行脚本。仅仅IE浏览器支持defer属性，而async属性则被ie10+和其他现代浏览器支持。</p>
+<p>异步： 异步是指当浏览器解析到script脚本时，会立刻下载和执行脚本，但同时浏览器解析器也会继续向下解析渲染文档，不会造成阻塞的现象。这使得脚本可以尽快的被载入执行，这很想我们前端调用post异步接口，并不影响文档的正常解析渲染。HTML5中的新属性，仅适用于外部脚本</p>
+<p><strong>注意</strong>： 使用defer属性的脚本，当有多个的时候，这些脚本会按照他们在文档中排列的顺序载入执行。而使用asyn属性的脚本，当有多个的时候，会顺序开始触发载入，但谁先完成载入就谁先执行，这就是说，他们的执行顺序可能是无序不确定的。在有的时候知道这点很重要，因为这可能涉及一些有强制顺序的逻辑处理。</p>
 <ul>
 <li>一个script标签同时使用了async和defer，则执行async，忽略defer。</li>
 </ul>
