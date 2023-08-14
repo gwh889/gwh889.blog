@@ -17,7 +17,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://example.com/2022/02/11/js/image-20221102170434564.png">
 <meta property="article:published_time" content="2022-02-10T16:00:00.000Z">
-<meta property="article:modified_time" content="2023-02-13T06:46:53.000Z">
+<meta property="article:modified_time" content="2023-08-14T05:56:44.473Z">
 <meta property="article:author" content="GWH">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://example.com/2022/02/11/js/image-20221102170434564.png">
@@ -553,6 +553,7 @@
 <p>宏任务： setTimeout，setInterval</p>
 <p>微任务： Promise.then/catch，process.nextTick</p>
 <p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/hyns/p/12392249.html">https://www.cnblogs.com/hyns/p/12392249.html</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_52092151/article/details/119788483">https://blog.csdn.net/weixin_52092151/article/details/119788483</a></p>
 <h2 id="js中this指针的改变-1"><a href="#js中this指针的改变-1" class="headerlink" title="js中this指针的改变"></a>js中this指针的改变</h2><p>1.apply： 第一个参数是this指向的新目标，第二个参数接受一个数组，里面是要传递的参数，相当于arguments</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">  name : <span class="string">&#x27;tom&#x27;</span>,</span><br><span class="line">  say : <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">this</span>.name);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">say.spply(obj,[<span class="string">&#x27;one&#x27;</span>,<span class="string">&#x27;two&#x27;</span>]);<span class="comment">//tom one two  效果一样</span></span><br></pre></td></tr></table></figure>
 <p>2.call： 第一个参数是this指向的新目标，第二个级以后的参数是要传递的参数，以逗号隔开</p>
@@ -569,6 +570,15 @@
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">asyncTime</span>(<span class="params">x</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve</span>)=&gt;</span>&#123;</span><br><span class="line">        <span class="built_in">setTimeout</span>(<span class="function">()=&gt;</span>&#123;</span><br><span class="line">            resolve(x)</span><br><span class="line">        &#125;,<span class="number">3000</span>)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">asyncTest</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">3</span>)</span><br><span class="line">    <span class="keyword">let</span> result = <span class="keyword">await</span> asyncTime(<span class="number">4</span>)</span><br><span class="line">    <span class="built_in">console</span>.log(result)</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&#x27;执行完成&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">1</span>)</span><br><span class="line">asyncTest()</span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">2</span>)</span><br><span class="line">打印顺序：<span class="number">1</span>  <span class="number">3</span>  <span class="number">2</span>  <span class="number">4</span></span><br></pre></td></tr></table></figure>
 <p>await会阻塞后边代码的执行，函数遇到await会中断async的执行，也就是说asyncTest的控制权交给了asyncTime，所以代码的作用域从asyncTest跳到了全局作用域window，所以执行顺序变成了 2   4。</p>
 <p>async函数是Generator 函数的语法糖 ，async函数就是将 Generator 函数的星号（*）替换成async，将yield替换成await；进一步说就是async函数完全可以看作多个异步操作，包装成的一个 Promise 对象，而await命令就是内部then命令的语法糖。</p>
+<h2 id="V8垃圾回收机制"><a href="#V8垃圾回收机制" class="headerlink" title="V8垃圾回收机制"></a>V8垃圾回收机制</h2><p>V8的垃圾回收策略是将内存分为<strong>新生代</strong>和<strong>老生代</strong>，新生代中为存活时间较短的对象，老生代中为存活时间较长或常驻对象；新生代又被划分为<strong>2个等大的内存空间</strong>，一个叫做<strong>使用空间</strong>（from），用于存放活动对象，另一个叫做<strong>空闲空间</strong>（to）；新生代的垃圾回收算法称之为Scavenge算法。</p>
+<blockquote>
+<p>默认情况下，32位系统新生代内存大小为16M，老生代内存大小为700M，64位系统下，新生代内存大小为32M，老生代内存大小为1.4G。</p>
+</blockquote>
+<ol>
+<li>从from空间中分配内存空间来存储对象，找出当前存活的对象（也可称为被引用的对象）拷贝至to空间，并将from空间中的非活动对象清除。</li>
+<li>当to空间的使用率超过**25%**时，即将from空间和to空间调换，原来的from空间变成to空间，原来的to空间变成from空间。</li>
+<li>经过一轮Scavenge算法后，from空间中上一轮存活的对象本轮如果仍然为活动对象，则将该对象移动至老生代中，如此循环操作。</li>
+</ol>
 <h2 id="模态框拖拽"><a href="#模态框拖拽" class="headerlink" title="模态框拖拽"></a>模态框拖拽</h2><p>js鼠标移动事件：onmousemove</p>
 <p>js鼠标点击：onmousedown</p>
 <p>js鼠标松开：onmouseup</p>
