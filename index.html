@@ -577,10 +577,10 @@
 <li>当to空间的使用率超过**25%**时，即将from空间和to空间调换，原来的from空间变成to空间，原来的to空间变成from空间。</li>
 <li>经过一轮Scavenge算法后，from空间中上一轮存活的对象本轮如果仍然为活动对象，则将该对象移动至老生代中，如此循环操作。</li>
 </ol>
-<h2 id="模态框拖拽"><a href="#模态框拖拽" class="headerlink" title="模态框拖拽"></a>模态框拖拽</h2><p>js鼠标移动事件：onmousemove</p>
-<p>js鼠标点击：onmousedown</p>
-<p>js鼠标松开：onmouseup</p>
-<p>js鼠标移出：onmouseout</p>
+<h2 id="模态框拖拽"><a href="#模态框拖拽" class="headerlink" title="模态框拖拽"></a>模态框拖拽</h2><p>js鼠标移动事件： onmousemove</p>
+<p>js鼠标点击： onmousedown</p>
+<p>js鼠标松开： onmouseup</p>
+<p>js鼠标移出： onmouseout</p>
 <h2 id="继承方式"><a href="#继承方式" class="headerlink" title="继承方式"></a>继承方式</h2><p>实现继承，要先有一个父类，如</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 定义一个动物类</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Animal</span> (<span class="params">name</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 属性</span></span><br><span class="line">  <span class="built_in">this</span>.name = name || <span class="string">&#x27;Animal&#x27;</span>;</span><br><span class="line">  <span class="comment">// 实例方法</span></span><br><span class="line">  <span class="built_in">this</span>.sleep = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">this</span>.name + <span class="string">&#x27;正在睡觉！&#x27;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 原型方法</span></span><br><span class="line">Animal.prototype.eat = <span class="function"><span class="keyword">function</span>(<span class="params">food</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">this</span>.name + <span class="string">&#x27;正在吃：&#x27;</span> + food);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <h3 id="1-原型链继承"><a href="#1-原型链继承" class="headerlink" title="1.原型链继承"></a>1.原型链继承</h3><p>核心：将父类的实例作为子类的原型</p>
@@ -979,6 +979,83 @@
 
 
   
+    <article id="post-将html元素转换为图片并可以下载，具体示例如下" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/07/20/%E5%B0%86html%E5%85%83%E7%B4%A0%E8%BD%AC%E6%8D%A2%E4%B8%BA%E5%9B%BE%E7%89%87%E5%B9%B6%E5%8F%AF%E4%BB%A5%E4%B8%8B%E8%BD%BD%EF%BC%8C%E5%85%B7%E4%BD%93%E7%A4%BA%E4%BE%8B%E5%A6%82%E4%B8%8B/">将html元素转换为图片并可以下载</a>
+    </h1>
+  
+
+        
+        <a href="/2021/07/20/%E5%B0%86html%E5%85%83%E7%B4%A0%E8%BD%AC%E6%8D%A2%E4%B8%BA%E5%9B%BE%E7%89%87%E5%B9%B6%E5%8F%AF%E4%BB%A5%E4%B8%8B%E8%BD%BD%EF%BC%8C%E5%85%B7%E4%BD%93%E7%A4%BA%E4%BE%8B%E5%A6%82%E4%B8%8B/" class="archive-article-date">
+  	<time datetime="2021-07-19T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-07-20</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+  
+ 
+	
+		<p>将html元素转换为图片并可以下载，具体示例如下: </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class&#x3D;&quot;previewPrint&quot; id&#x3D;&quot;previewPrint&quot; ref&#x3D;&quot;imageWrapper&quot;&gt;</span><br><span class="line">        &lt;div v-for&#x3D;&quot;item in barcodeList&quot; :key&#x3D;&quot;item.index&quot; class&#x3D;&quot;printBar&quot;&gt;</span><br><span class="line">          &lt;div&gt;料箱编码：AB0300001&lt;&#x2F;div&gt;</span><br><span class="line">          &lt;div class&#x3D;&quot;printDescribe&quot;&gt;</span><br><span class="line">            &lt;div&gt;型号：AB-001&lt;&#x2F;div&gt;</span><br><span class="line">            &lt;div&gt;重量(kg)：10.15&lt;&#x2F;div&gt;</span><br><span class="line">          &lt;&#x2F;div&gt;</span><br><span class="line">          &lt;barcode :value&#x3D;&quot;item.value&quot; height&#x3D;&quot;70&quot;&gt;</span><br><span class="line">            &#123;&#123; item.value &#125;&#125;</span><br><span class="line">          &lt;&#x2F;barcode&gt;</span><br><span class="line">        &lt;&#x2F;div&gt;</span><br><span class="line">&lt;&#x2F;div&gt;</span><br><span class="line">&#x2F;&#x2F;转换工具</span><br><span class="line">import html2canvas from &#39;html2canvas&#39;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment">//点击下载调用的函数</span></span><br><span class="line"><span class="function"><span class="title">download</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">      html2canvas(<span class="built_in">this</span>.$refs.imageWrapper, &#123;</span><br><span class="line">        backgroundColor: <span class="string">&#x27;#fff&#x27;</span>,</span><br><span class="line">        scal: <span class="number">2</span></span><br><span class="line">      &#125;).then(<span class="function">(<span class="params">canvas</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">var</span> context = canvas.getContext(<span class="string">&#x27;2d&#x27;</span>);</span><br><span class="line">        <span class="comment">// 关闭抗锯齿</span></span><br><span class="line">        context.mozImageSmoothingEnabled = <span class="literal">false</span>;</span><br><span class="line">        context.webkitImageSmoothingEnabled = <span class="literal">false</span>;</span><br><span class="line">        context.msImageSmoothingEnabled = <span class="literal">false</span>;</span><br><span class="line">        context.imageSmoothingEnabled = <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">let</span> dataURL = canvas.toDataURL(<span class="string">&#x27;image/png&#x27;</span>);</span><br><span class="line">        <span class="built_in">this</span>.createImgUrl = dataURL;</span><br><span class="line">        <span class="built_in">this</span>.fileDownload(dataURL);</span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;,</span><br><span class="line">     fileDownload (downloadUrl) &#123;</span><br><span class="line">      <span class="keyword">let</span> aLink = <span class="built_in">document</span>.createElement(<span class="string">&#x27;a&#x27;</span>);</span><br><span class="line">      aLink.style.display = <span class="string">&#x27;none&#x27;</span>;</span><br><span class="line">      aLink.href = downloadUrl;</span><br><span class="line">      aLink.download = <span class="string">&#x27;料箱条形码.png&#x27;</span>;</span><br><span class="line">      <span class="comment">// 触发点击-然后移除</span></span><br><span class="line">      <span class="built_in">document</span>.body.appendChild(aLink);</span><br><span class="line">      aLink.click();</span><br><span class="line">      <span class="built_in">document</span>.body.removeChild(aLink);</span><br><span class="line">    &#125;,</span><br></pre></td></tr></table></figure>
+
+	
+
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/demo//" class="article-tag-list-link color5">demo</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/07/20/%E5%B0%86html%E5%85%83%E7%B4%A0%E8%BD%AC%E6%8D%A2%E4%B8%BA%E5%9B%BE%E7%89%87%E5%B9%B6%E5%8F%AF%E4%BB%A5%E4%B8%8B%E8%BD%BD%EF%BC%8C%E5%85%B7%E4%BD%93%E7%A4%BA%E4%BE%8B%E5%A6%82%E4%B8%8B/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-企业码_JSSDK" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1028,83 +1105,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2021/07/20/%E4%BC%81%E4%B8%9A%E7%A0%81_JSSDK/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-将html元素转换为图片并可以下载，具体示例如下" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/07/20/%E5%B0%86html%E5%85%83%E7%B4%A0%E8%BD%AC%E6%8D%A2%E4%B8%BA%E5%9B%BE%E7%89%87%E5%B9%B6%E5%8F%AF%E4%BB%A5%E4%B8%8B%E8%BD%BD%EF%BC%8C%E5%85%B7%E4%BD%93%E7%A4%BA%E4%BE%8B%E5%A6%82%E4%B8%8B/">将html元素转换为图片并可以下载</a>
-    </h1>
-  
-
-        
-        <a href="/2021/07/20/%E5%B0%86html%E5%85%83%E7%B4%A0%E8%BD%AC%E6%8D%A2%E4%B8%BA%E5%9B%BE%E7%89%87%E5%B9%B6%E5%8F%AF%E4%BB%A5%E4%B8%8B%E8%BD%BD%EF%BC%8C%E5%85%B7%E4%BD%93%E7%A4%BA%E4%BE%8B%E5%A6%82%E4%B8%8B/" class="archive-article-date">
-  	<time datetime="2021-07-19T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-07-20</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-  
- 
-	
-		<p>将html元素转换为图片并可以下载，具体示例如下: </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class&#x3D;&quot;previewPrint&quot; id&#x3D;&quot;previewPrint&quot; ref&#x3D;&quot;imageWrapper&quot;&gt;</span><br><span class="line">        &lt;div v-for&#x3D;&quot;item in barcodeList&quot; :key&#x3D;&quot;item.index&quot; class&#x3D;&quot;printBar&quot;&gt;</span><br><span class="line">          &lt;div&gt;料箱编码：AB0300001&lt;&#x2F;div&gt;</span><br><span class="line">          &lt;div class&#x3D;&quot;printDescribe&quot;&gt;</span><br><span class="line">            &lt;div&gt;型号：AB-001&lt;&#x2F;div&gt;</span><br><span class="line">            &lt;div&gt;重量(kg)：10.15&lt;&#x2F;div&gt;</span><br><span class="line">          &lt;&#x2F;div&gt;</span><br><span class="line">          &lt;barcode :value&#x3D;&quot;item.value&quot; height&#x3D;&quot;70&quot;&gt;</span><br><span class="line">            &#123;&#123; item.value &#125;&#125;</span><br><span class="line">          &lt;&#x2F;barcode&gt;</span><br><span class="line">        &lt;&#x2F;div&gt;</span><br><span class="line">&lt;&#x2F;div&gt;</span><br><span class="line">&#x2F;&#x2F;转换工具</span><br><span class="line">import html2canvas from &#39;html2canvas&#39;</span><br></pre></td></tr></table></figure>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment">//点击下载调用的函数</span></span><br><span class="line"><span class="function"><span class="title">download</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">      html2canvas(<span class="built_in">this</span>.$refs.imageWrapper, &#123;</span><br><span class="line">        backgroundColor: <span class="string">&#x27;#fff&#x27;</span>,</span><br><span class="line">        scal: <span class="number">2</span></span><br><span class="line">      &#125;).then(<span class="function">(<span class="params">canvas</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">var</span> context = canvas.getContext(<span class="string">&#x27;2d&#x27;</span>);</span><br><span class="line">        <span class="comment">// 关闭抗锯齿</span></span><br><span class="line">        context.mozImageSmoothingEnabled = <span class="literal">false</span>;</span><br><span class="line">        context.webkitImageSmoothingEnabled = <span class="literal">false</span>;</span><br><span class="line">        context.msImageSmoothingEnabled = <span class="literal">false</span>;</span><br><span class="line">        context.imageSmoothingEnabled = <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">let</span> dataURL = canvas.toDataURL(<span class="string">&#x27;image/png&#x27;</span>);</span><br><span class="line">        <span class="built_in">this</span>.createImgUrl = dataURL;</span><br><span class="line">        <span class="built_in">this</span>.fileDownload(dataURL);</span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;,</span><br><span class="line">     fileDownload (downloadUrl) &#123;</span><br><span class="line">      <span class="keyword">let</span> aLink = <span class="built_in">document</span>.createElement(<span class="string">&#x27;a&#x27;</span>);</span><br><span class="line">      aLink.style.display = <span class="string">&#x27;none&#x27;</span>;</span><br><span class="line">      aLink.href = downloadUrl;</span><br><span class="line">      aLink.download = <span class="string">&#x27;料箱条形码.png&#x27;</span>;</span><br><span class="line">      <span class="comment">// 触发点击-然后移除</span></span><br><span class="line">      <span class="built_in">document</span>.body.appendChild(aLink);</span><br><span class="line">      aLink.click();</span><br><span class="line">      <span class="built_in">document</span>.body.removeChild(aLink);</span><br><span class="line">    &#125;,</span><br></pre></td></tr></table></figure>
-
-	
-
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/demo//" class="article-tag-list-link color5">demo</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/07/20/%E5%B0%86html%E5%85%83%E7%B4%A0%E8%BD%AC%E6%8D%A2%E4%B8%BA%E5%9B%BE%E7%89%87%E5%B9%B6%E5%8F%AF%E4%BB%A5%E4%B8%8B%E8%BD%BD%EF%BC%8C%E5%85%B7%E4%BD%93%E7%A4%BA%E4%BE%8B%E5%A6%82%E4%B8%8B/">展开全文 >></a>
         </p>
       
 
